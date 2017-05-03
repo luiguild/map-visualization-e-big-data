@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "bulma": "^0.4.1",
     "esri-loader": "^1.0.0",
     "node-sass": "^4.5.2",
     "pug": "^2.0.0-rc.1",

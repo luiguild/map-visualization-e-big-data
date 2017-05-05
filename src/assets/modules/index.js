@@ -1,5 +1,5 @@
-import * as esri from './map'
+import * as map from './map'
 
 export {
-    esri
+    map
 }

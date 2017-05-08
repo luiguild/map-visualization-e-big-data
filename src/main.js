@@ -7,11 +7,11 @@
 
 import Vue from 'vue'
 import store from './vuex'
-import App from '@/components/App'
+import app from '@/components/templates/app'
 
 Vue.config.debug = true
 
 new Vue({
     store,
-    render: h => h(App)
+    render: h => h(app)
 }).$mount('#app')

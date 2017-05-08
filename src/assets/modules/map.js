@@ -59,6 +59,7 @@ const constructors = {
             'esri/config',
             'esri/Map',
             'esri/geometry/Geometry',
+            'esri/Camera',
             'esri/geometry/Extent',
             'esri/views/SceneView',
             'esri/layers/FeatureLayer',
@@ -82,6 +83,7 @@ const constructors = {
             esriConfig,
             Map,
             Geometry,
+            Camera,
             Extent,
             SceneView,
             FeatureLayer,
@@ -117,6 +119,7 @@ const constructors = {
             constructors.utils.Search = Search
             constructors.utils.jsonUtils = jsonUtils
             constructors.utils.Extent = Extent
+            constructors.utils.Camera = Camera
 
             constructors.renderer.UniqueValueRenderer = UniqueValueRenderer
             constructors.renderer.ClassBreaksRenderer = ClassBreaksRenderer
@@ -144,7 +147,7 @@ const constructors = {
     createMap = Map => {
         logger.log('Creating map...')
         global.map = new Map({
-            basemap: 'streets',
+            basemap: 'dark-gray',
             ground: 'world-elevation',
             layers: []
         })
@@ -181,15 +184,14 @@ const constructors = {
                         view.scale > elm.maxScale) ||
                         (elm.minScale === 0 &&
                             elm.maxScale === 0)) &&
-                        elm.raw !== undefined) {
+                        (elm.raw !== undefined &&
+                        elm.raw.esri.visible)) {
                         if (elm.raw.esri.type === 0) {
-                            logger.log(`Creating quadrant to ${elm.title}`)
                             const urlQuery = `!xmin=${view.extent.xmin}!xmax=${view.extent.xmax}!ymin=${view.extent.ymin}!ymax=${view.extent.ymax}`
 
-                            logger.log(`Querying layer: ${elm.title}`)
+                            logger.log(`Getting quadrant to request ${elm.title}`)
                             logger.log(`Requesting to server: ${elm.raw.esri.url}/where=${urlQuery}`)
 
-                            // global.map.allLayers.items[elm.id].definitionExpression = urlQuery
                             elm.definitionExpression = urlQuery
                         }
 
@@ -215,10 +217,31 @@ const constructors = {
         view.ui.remove([
             'zoom', 'compass', 'navigation-toggle'
         ])
+    },
+    goToExtent = (_extent, _camera) => {
+        const view = global.view,
+            Extent = constructors.utils.Extent,
+            Camera = constructors.utils.Camera,
+            extentObj = new Extent({
+                xmin: _extent.xmin,
+                ymin: _extent.ymin,
+                xmax: _extent.xmax,
+                ymax: _extent.ymax,
+                spatialReference: 4326
+            }),
+            cameraObj = new Camera({
+                heading: _camera.heading,
+                tilt: _camera.tilt
+            })
+
+        view.goTo(extentObj)
+        view.goTo(cameraObj)
+        logger.log(`Change view extent!`)
     }
 
 export {
     constructors,
     global,
-    start
+    start,
+    goToExtent
 }

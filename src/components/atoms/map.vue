@@ -1,14 +1,15 @@
 <style lang="sass">
-    @import ../sass/app
+    @import ../../sass/imports/_extend
 
     #map
+        position: absolute
         height: 100%
         width: 100%
         top: 0
         left: 0
-        z-index: 2
+        z-index: 3
 
-        &::before
+        &::after
             content: '\f110'
             font-family: 'FontAwesome'
             -webkit-animation: fa-spin 1s infinite steps(8)
@@ -25,7 +26,7 @@
             +flex(row, n, center, center)
 
         > .esri-view-root
-            z-index: 2
+            z-index: 3
             position: absolute
 
         .esri-ui-inner-container
@@ -67,25 +68,25 @@
 
                         .esri-menu
                             margin: 0
-                        //     bottom: 32px
-                        //     z-index: 99
-                        //     top: inherit
-                        //     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.3)
-                        //     border-bottom: solid 1px rgba(210, 210, 210, 1)
-                        //
-                        //     div > ul
-                        //         overflow-x: hidden
-                        //         // +flex(column-reverse, n, flex-start, flex-start)
-                        //         width: 100%
-                        //
-                        //         > li
-                        //             width: 100%
-                        //
-                        //             &:first-child
-                        //                 border-top: solid 1px rgba(50,50,50,0.2)
-                        //
-                        //             &:last-child
-                        //                 border-top: none
+                            bottom: 32px
+                            z-index: 99
+                            top: inherit
+                            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.3)
+                            border-bottom: solid 1px rgba(210, 210, 210, 1)
+
+                            div > ul
+                                overflow-x: hidden
+                                // +flex(column-reverse, n, flex-start, flex-start)
+                                width: 100%
+
+                                > li
+                                    width: 100%
+
+                                    &:first-child
+                                        border-top: solid 1px rgba(50,50,50,0.2)
+
+                                    &:last-child
+                                        border-top: none
 
                 .esri-search__submit-button
                     background-color: $color1

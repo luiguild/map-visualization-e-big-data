@@ -27,7 +27,7 @@ const allLayers = [],
                 LayerConstructor = constructors.layer.TileLayer
             }
 
-            logger.log(`Adding id by index on layer nerda`)
+            logger.log(`Adding id by index on layer`)
             elm.id = indx
 
             addNewLayer(LayerConstructor, constructors.utils.watchUtils, constructors.utils.jsonUtils, elm)
@@ -44,8 +44,6 @@ const allLayers = [],
             raw: _layer,
             visible: _layer.esri.visible
         })
-
-        console.log(layer)
 
         // if (layer.raw.esri.renderer) {
             // logger.log(`Applying renderer...`)

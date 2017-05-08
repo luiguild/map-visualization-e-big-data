@@ -168,6 +168,35 @@ const constructors = {
 
             controlUI(global.view, constructors.utils.Search)
             loadLayers()
+            watcherRunning(global.map, global.view, constructors.utils.watchUtils)
+        })
+    },
+    watcherRunning = (map, view, watchUtils) => {
+        watchUtils.whenTrue(view, 'stationary', () => {
+            if (view.extent) {
+                logger.log(`View changed! Mapping all layers...`)
+
+                map.allLayers.map((elm, indx, arr) => {
+                    if (((view.scale < elm.minScale &&
+                        view.scale > elm.maxScale) ||
+                        (elm.minScale === 0 &&
+                            elm.maxScale === 0)) &&
+                        elm.raw !== undefined) {
+                        if (elm.raw.esri.type === 0) {
+                            logger.log(`Creating quadrant to ${elm.title}`)
+                            const urlQuery = `!xmin=${view.extent.xmin}!xmax=${view.extent.xmax}!ymin=${view.extent.ymin}!ymax=${view.extent.ymax}`
+
+                            logger.log(`Querying layer: ${elm.title}`)
+                            logger.log(`Requesting to server: ${elm.raw.esri.url}/where=${urlQuery}`)
+
+                            // global.map.allLayers.items[elm.id].definitionExpression = urlQuery
+                            elm.definitionExpression = urlQuery
+                        }
+
+                        logger.log(`Drawing layer: ${elm.title}`)
+                    }
+                })
+            }
         })
     },
     controlUI = (view, Search) => {

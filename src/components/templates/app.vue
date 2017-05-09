@@ -8,16 +8,19 @@
 
 <template lang="pug">
     .root
+        webradar
         slide
         controls
         esri-map
 </template>
 
 <script>
-    import { mapState, mapGetters, mapMutations } from 'vuex'
+    import { mapState, mapGetters, mapActions } from 'vuex'
+    import * as logger from '@/assets/modules/logger'
     import esriMap from '../atoms/map'
     import controls from '../atoms/controls'
-    import slide from '../atoms/slide'
+    import slide from '../molecules/slides'
+    import webradar from '../atoms/webradar'
 
     export default {
         props: [],
@@ -27,6 +30,7 @@
         updated: function () {},
         destroyed: function () {},
         components: {
+            webradar,
             slide,
             controls,
             esriMap
@@ -36,7 +40,18 @@
             ...mapState({})
         },
         methods: {
-            ...mapMutations([])
+            ...mapActions([
+                'increment',
+                'decrement'
+            ]),
+            next () {
+                logger.log(`Next slide...`)
+                this.increment()
+            },
+            previous () {
+                logger.log(`Previous slide...`)
+                this.decrement()
+            }
         },
         filters: {},
         watch: {}

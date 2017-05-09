@@ -72,6 +72,41 @@ const allLayers = [],
         })
 
         global.map.add(layer)
+    },
+    addGraphicLayer = (_symbol, _point) => {
+        const map = global.map,
+            GraphicsLayer = constructors.layer.GraphicsLayer,
+            PointSymbol3D = constructors.renderer.PointSymbol3D,
+            ObjectSymbol3DLayer = constructors.renderer.ObjectSymbol3DLayer,
+            Point = constructors.renderer.Point,
+            Graphic = constructors.renderer.Graphic,
+            graphicsLayer = new GraphicsLayer(),
+            objectSymbol = new PointSymbol3D({
+                symbolLayers: [
+                    new ObjectSymbol3DLayer({
+                        width: _symbol.width,
+                        height: _symbol.height,
+                        resource: {
+                            primitive: _symbol.primitive
+                        },
+                        material: {
+                            color: _symbol.color
+                        }
+                    })
+                ]
+            }),
+            point = new Point({
+                x: _point.x,
+                y: _point.y,
+                z: _point.z
+            }),
+            pointGraphic = new Graphic({
+                geometry: point,
+                symbol: objectSymbol
+            })
+
+        map.add(graphicsLayer)
+        graphicsLayer.add(pointGraphic)
     }
     // applyingPopups = layer => {
     //     logger.log(`Making popups...`)
@@ -95,5 +130,6 @@ const allLayers = [],
 
 export {
     loadLayers,
-    addNewLayer
+    addNewLayer,
+    addGraphicLayer
 }

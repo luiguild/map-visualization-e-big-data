@@ -1,3 +1,7 @@
 // import Vue from 'vue'
 
-export default {}
+export default {
+    actual (state) {
+        return state.actual
+    }
+}

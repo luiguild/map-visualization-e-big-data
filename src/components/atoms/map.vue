@@ -125,15 +125,15 @@
 </template>
 
 <script>
-    import { mapState, mapGetters, mapMutations } from 'vuex'
-    import * as esriCreator from '@/assets/modules'
+    import { mapState, mapGetters, mapActions } from 'vuex'
+    import * as libESRI from '@/assets/modules'
 
     export default {
         props: [],
         data: () => ({}),
         created: function () {},
         mounted: function () {
-            esriCreator.map.start(this.$refs.map)
+            libESRI.map.start(this.$refs.map)
         },
         updated: function () {},
         destroyed: function () {},
@@ -143,7 +143,7 @@
             ...mapState({})
         },
         methods: {
-            ...mapMutations([])
+            ...mapActions([])
         },
         filters: {},
         watch: {}

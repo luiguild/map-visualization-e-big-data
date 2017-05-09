@@ -1,3 +1,10 @@
 // import Vue from 'vue'
 
-export default {}
+export default {
+    increment ({ commit }) {
+        commit('next')
+    },
+    decrement ({ commit }) {
+        commit('previous')
+    }
+}

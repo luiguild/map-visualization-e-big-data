@@ -51,11 +51,11 @@
 
 <template lang="pug">
     #controls
-        .controller-group
+        .controller-group(@keyup.left="previous()", @keyup.right="next()")
             .controller.left
-                i.fa.fa-chevron-left
+                i.fa.fa-chevron-left(@click="previous()")
             .controller.right
-                i.fa.fa-chevron-right
+                i.fa.fa-chevron-right(@click="next()")
 
         .controller-group
             .controller.up.is-disabled
@@ -65,7 +65,8 @@
 </template>
 
 <script>
-    import { mapState, mapGetters, mapMutations } from 'vuex'
+    import { mapState, mapGetters, mapActions } from 'vuex'
+    import * as logger from '@/assets/modules/logger'
 
     export default {
         props: [],
@@ -80,7 +81,18 @@
             ...mapState({})
         },
         methods: {
-            ...mapMutations([])
+            ...mapActions([
+                'increment',
+                'decrement'
+            ]),
+            next () {
+                logger.log(`Next slide...`)
+                this.increment()
+            },
+            previous () {
+                logger.log(`Previous slide...`)
+                this.decrement()
+            }
         },
         filters: {},
         watch: {}

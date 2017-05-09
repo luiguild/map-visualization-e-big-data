@@ -1,6 +1,6 @@
 import * as esriLoader from 'esri-loader'
 import * as logger from './logger'
-import { loadLayers } from './layers'
+import { createView } from './view'
 
 const constructors = {
         layer: {
@@ -64,6 +64,7 @@ const constructors = {
             'esri/views/SceneView',
             'esri/layers/FeatureLayer',
             'esri/layers/TileLayer',
+            'esri/layers/GraphicsLayer',
             'esri/core/watchUtils',
             'esri/core/Collection',
             'esri/renderers/UniqueValueRenderer',
@@ -75,6 +76,10 @@ const constructors = {
             'esri/symbols/PictureMarkerSymbol',
             'esri/symbols/SimpleLineSymbol',
             'esri/symbols/SimpleFillSymbol',
+            'esri/Graphic',
+            'esri/geometry/Point',
+            'esri/symbols/PointSymbol3D',
+            'esri/symbols/ObjectSymbol3DLayer',
             'esri/widgets/Search',
             'esri/renderers/support/jsonUtils',
             'dojo/on',
@@ -88,6 +93,7 @@ const constructors = {
             SceneView,
             FeatureLayer,
             TileLayer,
+            GraphicsLayer,
             watchUtils,
             Collection,
             UniqueValueRenderer,
@@ -99,6 +105,10 @@ const constructors = {
             PictureMarkerSymbol,
             SimpleLineSymbol,
             SimpleFillSymbol,
+            Graphic,
+            Point,
+            PointSymbol3D,
+            ObjectSymbol3DLayer,
             Search,
             jsonUtils,
             on
@@ -114,6 +124,7 @@ const constructors = {
 
             constructors.layer.FeatureLayer = FeatureLayer
             constructors.layer.TileLayer = TileLayer
+            constructors.layer.GraphicsLayer = GraphicsLayer
 
             constructors.utils.watchUtils = watchUtils
             constructors.utils.Search = Search
@@ -130,6 +141,10 @@ const constructors = {
             constructors.renderer.PictureMarkerSymbol = PictureMarkerSymbol
             constructors.renderer.SimpleLineSymbol = SimpleLineSymbol
             constructors.renderer.SimpleFillSymbol = SimpleFillSymbol
+            constructors.renderer.Graphic = Graphic
+            constructors.renderer.Point = Point
+            constructors.renderer.PointSymbol3D = PointSymbol3D
+            constructors.renderer.ObjectSymbol3DLayer = ObjectSymbol3DLayer
 
             if (constructors.Map && constructors.SceneView) {
                 logger.log('All constructorss created!')
@@ -153,95 +168,10 @@ const constructors = {
         })
 
         return global.map
-    },
-    createView = (map, View, container) => {
-        logger.log('Creating View...')
-        global.view = new View({
-            container: container,
-            map: map,
-            scale: 25000000,
-            center: [-52.17, -13.78],
-            viewingMode: 'global',
-            starsEnabled: true,
-            atmosphereEnabled: true
-        })
-
-        global.view.then(() => {
-            logger.log('View ready!')
-
-            controlUI(global.view, constructors.utils.Search)
-            loadLayers()
-            watcherRunning(global.map, global.view, constructors.utils.watchUtils)
-        })
-    },
-    watcherRunning = (map, view, watchUtils) => {
-        watchUtils.whenTrue(view, 'stationary', () => {
-            if (view.extent) {
-                logger.log(`View changed! Mapping all layers...`)
-
-                map.allLayers.map((elm, indx, arr) => {
-                    if (((view.scale < elm.minScale &&
-                        view.scale > elm.maxScale) ||
-                        (elm.minScale === 0 &&
-                            elm.maxScale === 0)) &&
-                        (elm.raw !== undefined &&
-                        elm.raw.esri.visible)) {
-                        if (elm.raw.esri.type === 0) {
-                            const urlQuery = `!xmin=${view.extent.xmin}!xmax=${view.extent.xmax}!ymin=${view.extent.ymin}!ymax=${view.extent.ymax}`
-
-                            logger.log(`Getting quadrant to request ${elm.title}`)
-                            logger.log(`Requesting to server: ${elm.raw.esri.url}/where=${urlQuery}`)
-
-                            elm.definitionExpression = urlQuery
-                        }
-
-                        logger.log(`Drawing layer: ${elm.title}`)
-                    }
-                })
-            }
-        })
-    },
-    controlUI = (view, Search) => {
-        logger.log('Changing UI elements...')
-        view.environment.atmosphere.quality = 'low'
-
-        const searchWidget = new Search({
-            view: view
-        })
-
-        view.ui.add(searchWidget, {
-            position: 'top-left',
-            index: 2
-        })
-
-        view.ui.remove([
-            'zoom', 'compass', 'navigation-toggle'
-        ])
-    },
-    goToExtent = (_extent, _camera) => {
-        const view = global.view,
-            Extent = constructors.utils.Extent,
-            Camera = constructors.utils.Camera,
-            extentObj = new Extent({
-                xmin: _extent.xmin,
-                ymin: _extent.ymin,
-                xmax: _extent.xmax,
-                ymax: _extent.ymax,
-                spatialReference: 4326
-            }),
-            cameraObj = new Camera({
-                heading: _camera.heading,
-                tilt: _camera.tilt
-            })
-
-        view.goTo(extentObj)
-        view.goTo(cameraObj)
-        logger.log(`Change view extent!`)
     }
 
 export {
     constructors,
     global,
-    start,
-    goToExtent
+    start
 }

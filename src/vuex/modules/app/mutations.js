@@ -1,3 +1,14 @@
 // import Vue from 'vue'
 
-export default {}
+export default {
+    next (state) {
+        if (state.actual < state.slides) {
+            state.actual++
+        }
+    },
+    previous (state) {
+        if (state.actual > 1) {
+            --state.actual
+        }
+    }
+}

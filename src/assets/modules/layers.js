@@ -107,6 +107,33 @@ const allLayers = [],
 
         map.add(graphicsLayer)
         graphicsLayer.add(pointGraphic)
+
+        logger.log(`Adding new Graphic Symbol...`)
+    },
+    visibility = (_layer, status) => {
+        const map = global.map
+
+        map.allLayers.map((elm, indx, arr) => {
+            if (elm.raw !== undefined) {
+                if (elm.raw.title === _layer) {
+                    elm.visible = status
+                }
+            }
+        })
+
+        logger.log(`Change visibility of layer: ${_layer} to: ${status}`)
+    },
+    hideAll = () => {
+        const map = global.map
+
+        map.allLayers.map((elm, indx, arr) => {
+            if (elm.raw !== undefined) {
+                if (elm.visible === true) {
+                    elm.visible = false
+                    logger.log(`Change visibility of layer: ${elm.raw.title} to: ${false}`)
+                }
+            }
+        })
     }
     // applyingPopups = layer => {
     //     logger.log(`Making popups...`)
@@ -131,5 +158,7 @@ const allLayers = [],
 export {
     loadLayers,
     addNewLayer,
-    addGraphicLayer
+    addGraphicLayer,
+    visibility,
+    hideAll
 }

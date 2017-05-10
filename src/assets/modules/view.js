@@ -27,6 +27,8 @@ const createView = (map, View, container) => {
             if (view.extent) {
                 logger.log(`View changed! Mapping all layers...`)
 
+                console.log(view.extent.center.latitude, view.extent.center.longitude)
+
                 map.allLayers.map((elm, indx, arr) => {
                     if (((view.scale < elm.minScale &&
                         view.scale > elm.maxScale) ||

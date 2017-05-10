@@ -13,11 +13,11 @@
         > .controller-group
             position: absolute
 
-            &:first-of-type
+            &:nth-child(2)
                 width: 100%
                 +flex(row, n, space-between, center)
 
-            &:last-of-type
+            &:nth-child(3)
                 height: 100%
                 +flex(column, n, space-between, center)
 
@@ -47,11 +47,37 @@
                 &:hover
                     > i
                         opacity: .2
+
+        > .controller-visibility
+            > .circle
+                position: absolute
+                top: $pixel-proportion * 3.8
+                left: $pixel-proportion * 4.1
+                z-index: 9
+                background-color: $white
+                opacity: .5
+                border-radius: 50%
+                min-height: 35px
+                max-height: 35px
+                height: 35px
+                min-width: 35px
+                max-width: 35px
+                width: 35px
+                +flex(row, n, center, center)
+                +transition(.2s)
+                +cursor_pointer
+
+                &:hover
+                    opacity: 1
 </style>
 
 <template lang="pug">
     #controls
-        .controller-group(@keyup.left="previous()", @keyup.right="next()")
+        .controller-visibility
+            .controller.circle(@click="visibilityToggle()")
+                i.fa(:class="expand")
+
+        .controller-group
             .controller.left
                 i.fa.fa-chevron-left(@click="previous()")
             .controller.right
@@ -78,12 +104,22 @@
         components: {},
         computed: {
             ...mapGetters([]),
-            ...mapState({})
+            ...mapState({
+                visibility: state => state.app.visibility
+            }),
+            expand () {
+                if (this.visibility) {
+                    return 'fa-compress'
+                } else {
+                    return 'fa-expand'
+                }
+            }
         },
         methods: {
             ...mapActions([
                 'increment',
-                'decrement'
+                'decrement',
+                'minimize'
             ]),
             next () {
                 logger.log(`Next slide...`)
@@ -92,6 +128,15 @@
             previous () {
                 logger.log(`Previous slide...`)
                 this.decrement()
+            },
+            visibilityToggle () {
+                if (this.visibility) {
+                    logger.log(`Hiding slides...`)
+                    this.minimize(false)
+                } else {
+                    logger.log(`Shoing slides...`)
+                    this.minimize(true)
+                }
             }
         },
         filters: {},

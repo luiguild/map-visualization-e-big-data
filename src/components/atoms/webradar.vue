@@ -11,7 +11,7 @@
         padding-bottom: 0
 
         > img
-            width: 120px
+            width: $pixel-proportion * 15
 </style>
 
 <template lang="pug">

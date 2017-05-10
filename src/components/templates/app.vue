@@ -26,7 +26,24 @@
         props: [],
         data: () => ({}),
         created: function () {},
-        mounted: function () {},
+        mounted: function () {
+            window.onkeydown = e => {
+                switch (e.keyCode) {
+                case 37:
+                    this.previous()
+                    break
+                case 38:
+                    console.log('up')
+                    break
+                case 39:
+                    this.next()
+                    break
+                case 40:
+                    console.log('down')
+                    break
+                }
+            }
+        },
         updated: function () {},
         destroyed: function () {},
         components: {

@@ -6,5 +6,8 @@ export default {
     },
     decrement ({ commit }) {
         commit('previous')
+    },
+    minimize ({ commit }, status) {
+        commit('visibility', status)
     }
 }

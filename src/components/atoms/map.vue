@@ -9,7 +9,7 @@
         left: 0
         z-index: 3
 
-        &::after
+        &::before
             content: '\f110'
             font-family: 'FontAwesome'
             -webkit-animation: fa-spin 1s infinite steps(8)
@@ -36,19 +36,19 @@
 
         .esri-ui-top-left
             width: 100%
-            display: inline-block
-            +flex(row, n, center, center)
+            height: 100%
+            top: 0
+            +flex(row, n, flex-start, flex-start)
 
             .esri-search
                 position: relative
-                top: -49px
                 order: 1
                 box-shadow: inherit
                 margin: 0
-                align-self: center
+                margin-left: $pixel-proportion * 20
                 width: $pixel-proportion * 46
-                padding: $pixel-proportion
-                background-color: $black-2
+                padding: $pixel-proportion + 1
+                background-color: transparentize($white, .2)
                 border-radius: 0 0 $pixel-proportion $pixel-proportion
                 +transition(.2s)
 
@@ -68,15 +68,16 @@
 
                         .esri-menu
                             margin: 0
-                            bottom: 32px
+                            top: 37px
                             z-index: 99
-                            top: inherit
+                            // top: inherit
+                            border-radius: $pixel-proportion / 2
                             box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.3)
                             border-bottom: solid 1px rgba(210, 210, 210, 1)
 
                             div > ul
                                 overflow-x: hidden
-                                // +flex(column-reverse, n, flex-start, flex-start)
+                                +flex(column-reverse, n, flex-start, flex-start)
                                 width: 100%
 
                                 > li
@@ -112,7 +113,7 @@
                     font-weight: 400
 
                 &::before
-                    content: 'HotSpots by WebRadar | Basemap'
+                    content: 'Luigui Delyer | Basemap'
                     font-weight: 400
                     margin-right: $pixel-proportion * -0.3
 

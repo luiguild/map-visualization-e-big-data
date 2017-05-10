@@ -2,8 +2,9 @@
 
 export default {
     actual: 1,
-    slides: 4,
-    clear: [1],
+    slides: 7,
+    clear: [1, 6, 7],
     up: [],
-    down: []
+    down: [],
+    visibility: true
 }

@@ -10,5 +10,8 @@ export default {
         if (state.actual > 1) {
             --state.actual
         }
+    },
+    visibility (state, status) {
+        state.visibility = status
     }
 }

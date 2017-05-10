@@ -21,17 +21,12 @@
 <template lang="pug">
     #internal
         .box
-            h1.title.is-1 Luigui Delyer
-            h1.subtitle.is-5 (Sim, isso é um nome)
-            h2.subtitle.is-4.is-marginless.has-text-centered Senior Front-End Developer @ WebRadar
-            h2.subtitle.is-4.is-marginless.has-text-centered Reps @ Mozilla Foundation
-            h2.subtitle.is-4.is-marginless.has-text-centered Criador do Tekoá e VBar
-            h2.subtitle.is-4.is-marginless.has-text-centered Ativista de software livre
-            h1.subtitle.is-4.is-marginless.has-text-centered
-                | Apaixonado pela web
-                br
-                | desde quando fazia barulho
-            h1.subtitle.is-5.is-marginless.has-text-centered Sou daqueles que pagam internet pra ver memes
+            h1.title.is-1 WebRadar
+            h1.subtitle.is-5 www.webradar.com
+            h1.subtitle.is-3.is-marginless NPI
+            h1.subtitle.is-4.is-marginless.has-text-centered Novos produtos, pesquisa e inovação
+            h2.subtitle.is-4.has-text-centered Criamos SaaS inteligentes que envolvem mapas, geoprocessamento de big data e analytics para internet das coisas utilizando redes neurais, código genético e muito malabarismo pra ligar tudo isso em soluções que atendam clientes de telecom, transportes, segurança e energia no mundo todo.
+            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, Open Street Maps, Mapbox, HERE Maps, Google Maps e Leaflet.
 </template>
 
 <script>

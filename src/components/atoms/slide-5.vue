@@ -26,7 +26,7 @@
             h1.subtitle.is-3.is-marginless NPI
             h1.subtitle.is-4.is-marginless.has-text-centered Novos produtos, pesquisa e inovação
             h2.subtitle.is-4.has-text-centered Criamos SaaS inteligentes que envolvem mapas, geoprocessamento de big data e analytics para internet das coisas utilizando redes neurais, código genético e muito malabarismo pra ligar tudo isso em soluções que atendam clientes de telecom, transportes, segurança e energia no mundo todo.
-            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, Open Street Maps, Mapbox, HERE Maps, Google Maps e Leaflet.
+            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, OpenStreetMap, Mapbox, HERE Maps, Google Maps e Leaflet.
 </template>
 
 <script>

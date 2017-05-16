@@ -15,10 +15,14 @@
 
             &:nth-child(2)
                 width: 100%
+                left: 0
+                top: $pixel-proportion * 3.8
                 +flex(row, n, space-between, center)
 
             &:nth-child(3)
                 height: 100%
+                top: 0
+                left: $pixel-proportion * 3.7
                 +flex(column, n, space-between, center)
 
             > .controller
@@ -51,7 +55,7 @@
         > .controller-visibility
             > .circle
                 position: absolute
-                top: $pixel-proportion * 3.8
+                top: $pixel-proportion * 4
                 left: $pixel-proportion * 4.1
                 z-index: 9
                 background-color: $white

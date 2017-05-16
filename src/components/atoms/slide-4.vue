@@ -6,7 +6,7 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, flex-start, center)
+        +flex(row, n, flex-end, center)
 
         > .box
             width: 500px
@@ -21,12 +21,17 @@
 <template lang="pug">
     #internal
         .box
-            h1.title.is-1 Meu stack
-            h1.subtitle.is-2.is-marginless JavaScript <3
-            h1.subtitle.is-3.is-marginless VueJS <3
-            h2.subtitle.is-4.is-marginless.has-text-centered Angular 1x, jQuery, HTML5, PugLang, CSS3, LESS, SASS, PHP, MySQL, Postgres, MariaDB, MongoDB, PouchDB, NeDB, Firebase, C#, Lua e Python
-            h2.subtitle.is-4.has-text-centered Já fui designer gráfico e adoro UI.
-            h2.subtitle.is-4.has-text-centered.is-marginless De vez em quando cozinho e tenho vida além da informática.
+            h1.title.is-1 Luigui Delyer
+            h1.subtitle.is-5 (Sim, isso é um nome)
+            h2.subtitle.is-4.is-marginless.has-text-centered Senior Front-End Developer @ WebRadar
+            h2.subtitle.is-4.is-marginless.has-text-centered Reps @ Mozilla Foundation
+            h2.subtitle.is-4.is-marginless.has-text-centered Criador do Tekoá e VBar
+            h2.subtitle.is-4.is-marginless.has-text-centered Ativista de software livre
+            h1.subtitle.is-4.is-marginless.has-text-centered
+                | Apaixonado pela web
+                br
+                | desde quando fazia barulho
+            h1.subtitle.is-5.is-marginless.has-text-centered Sou daqueles que pagam internet pra ver memes
 </template>
 
 <script>

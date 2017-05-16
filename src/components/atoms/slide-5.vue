@@ -6,7 +6,7 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, flex-end, center)
+        +flex(row, n, flex-start, center)
 
         > .box
             width: 500px
@@ -21,12 +21,12 @@
 <template lang="pug">
     #internal
         .box
-            h1.title.is-1 WebRadar
-            h1.subtitle.is-5 www.webradar.com
-            h1.subtitle.is-3.is-marginless NPI
-            h1.subtitle.is-4.is-marginless.has-text-centered Novos produtos, pesquisa e inovação
-            h2.subtitle.is-4.has-text-centered Criamos SaaS inteligentes que envolvem mapas, geoprocessamento de big data e analytics para internet das coisas utilizando redes neurais, código genético e muito malabarismo pra ligar tudo isso em soluções que atendam clientes de telecom, transportes, segurança e energia no mundo todo.
-            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, Open Street Maps, Mapbox, HERE Maps, Google Maps e Leaflet.
+            h1.title.is-1 Meu stack
+            h1.subtitle.is-2.is-marginless JavaScript <3
+            h1.subtitle.is-3.is-marginless VueJS <3
+            h2.subtitle.is-4.is-marginless.has-text-centered Angular 1x, jQuery, HTML5, PugLang, CSS3, LESS, SASS, PHP, MySQL, Postgres, MariaDB, MongoDB, PouchDB, NeDB, Firebase, C#, Lua e Python
+            h2.subtitle.is-4.has-text-centered Já fui designer gráfico e adoro UI.
+            h2.subtitle.is-4.has-text-centered.is-marginless De vez em quando cozinho e tenho vida além da informática.
 </template>
 
 <script>

@@ -27,15 +27,15 @@ const createView = (map, View, container) => {
             if (view.extent) {
                 logger.log(`View changed! Mapping all layers...`)
 
-                console.log(view.extent.center.latitude, view.extent.center.longitude)
+                console.log(view.extent.center.latitude, view.extent.center.longitude, view.scale)
 
                 map.allLayers.map((elm, indx, arr) => {
                     if (((view.scale < elm.minScale &&
                         view.scale > elm.maxScale) ||
                         (elm.minScale === 0 &&
                             elm.maxScale === 0)) &&
-                        (elm.raw !== undefined &&
-                        elm.raw.esri.visible)) {
+                            (elm.raw !== undefined &&
+                                elm.visible)) {
                         if (elm.raw.esri.type === 0) {
                             const urlQuery = `!xmin=${view.extent.xmin}!xmax=${view.extent.xmax}!ymin=${view.extent.ymin}!ymax=${view.extent.ymax}`
 

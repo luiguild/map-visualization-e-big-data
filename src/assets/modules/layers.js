@@ -45,11 +45,11 @@ const allLayers = [],
             visible: _layer.esri.visible
         })
 
-        // if (layer.raw.esri.renderer) {
-            // logger.log(`Applying renderer...`)
+        if (layer.raw.esri.renderer) {
+            logger.log(`Applying renderer...`)
 
-            // layer.renderer = jsonUtils.fromJSON(layer.raw.esri.renderer)
-        // }
+            layer.renderer = jsonUtils.fromJSON(layer.raw.esri.renderer)
+        }
 
         // if (layer.raw.esri.popupTemplate) {
         //     layer.popupTemplate = applyingPopups(layer.raw)
@@ -80,7 +80,9 @@ const allLayers = [],
             ObjectSymbol3DLayer = constructors.renderer.ObjectSymbol3DLayer,
             Point = constructors.renderer.Point,
             Graphic = constructors.renderer.Graphic,
-            graphicsLayer = new GraphicsLayer(),
+            graphicsLayer = new GraphicsLayer({
+                id: 'Point'
+            }),
             objectSymbol = new PointSymbol3D({
                 symbolLayers: [
                     new ObjectSymbol3DLayer({
@@ -117,11 +119,22 @@ const allLayers = [],
             if (elm.raw !== undefined) {
                 if (elm.raw.title === _layer) {
                     elm.visible = status
+                    logger.log(`Change visibility of layer: ${_layer} to: ${status}`)
                 }
             }
         })
+    },
+    opacity = (_layer, _opacity) => {
+        const map = global.map
 
-        logger.log(`Change visibility of layer: ${_layer} to: ${status}`)
+        map.allLayers.map((elm, indx, arr) => {
+            if (elm.raw !== undefined) {
+                if (elm.raw.title === _layer) {
+                    elm.opacity = _opacity / 100
+                    logger.log(`Change opacity of layer: ${_layer} to: ${_opacity}`)
+                }
+            }
+        })
     },
     hideAll = () => {
         const map = global.map
@@ -131,6 +144,18 @@ const allLayers = [],
                 if (elm.visible === true) {
                     elm.visible = false
                     logger.log(`Change visibility of layer: ${elm.raw.title} to: ${false}`)
+                }
+            }
+        })
+    },
+    removePoints = () => {
+        const map = global.map
+
+        map.allLayers.map((elm, indx, arr) => {
+            if (elm.id === 'Point') {
+                if (elm.visible === true) {
+                    elm.visible = false
+                    logger.log(`Remove point...`)
                 }
             }
         })
@@ -160,5 +185,7 @@ export {
     addNewLayer,
     addGraphicLayer,
     visibility,
-    hideAll
+    opacity,
+    hideAll,
+    removePoints
 }

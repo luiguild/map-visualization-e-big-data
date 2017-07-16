@@ -15,10 +15,28 @@ module.exports = {
     plugins: [
         'html'
     ],
+    'globals': {
+        'THREE': true,
+        'glMatrix': true,
+        'windmill_blades_offset': true,
+        'windmill_base_positions': true,
+        'windmill_blades_positions': true,
+        'windmill_base_normals': true,
+        'windmill_blades_normals': true,
+        'windmill_base_indices': true,
+        'windmill_blades_indices': true,
+    },
     // add your custom rules here
     'rules': {
         'indent': ['error', 4],
-        'one-var': ["error", "always"],        
+        'one-var': [
+            "error",
+            {
+                var: "never",
+                let: "never",
+                const: "never"
+            }
+        ],
         // allow paren-less arrow functions
         'arrow-parens': 0,
         // allow async-await

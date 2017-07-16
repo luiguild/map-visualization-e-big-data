@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Transformando informação em valor, latitude e longitude.">
@@ -18,12 +18,43 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0'>
 
-    <link rel='stylesheet' type='text/css' href='http://localhost/arcgis_js_api/library/4.3/4.3/esri/css/main.css'>
+    <link rel='stylesheet' type='text/css' href='http://localhost/arcgis_js_api/library/4.4/esri/css/main.css'>
 
     <title>Map visualization e Big Data | Luigui Delye</title>
-  </head>
-  <body>
+</head>
+<body>
     <div id="app"></div>
+    <script src="static/js/three.js"></script>
+    <script src="static/js/OBJLoader.js"></script>
+    <script src="static/js/windmill.js"></script>
+    <script src="static/js/gl-matrix-min.js"></script>
+
+    <script id='shader-fs' type='x-shader/x-fragment'>
+        precision mediump float
+        varying vec3 vLightColor
+        void main (void) {
+            gl_FragColor = vec4(vLightColor, 1.0)
+        }
+    </script>
+
+    <script id='shader-vs' type='x-shader/x-vertex'>
+        attribute vec3 aVertexPosition
+        attribute vec3 aVertexNormal
+        uniform mat4 uModelViewMatrix
+        uniform mat4 uProjectionMatrix
+        uniform mat3 uNormalMatrix
+        uniform vec3 uAmbientColor
+        uniform vec3 uLightingDirection
+        uniform vec3 uDirectionalColor
+        varying vec3 vLightColor
+        void main (void) {
+            gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0)
+            vec3 transformedNormal = normalize(uNormalMatrix * aVertexNormal)
+
+            float directionalLightWeighting = max(dot(transformedNormal, uLightingDirection), 0.0)
+            vLightColor = uAmbientColor + uDirectionalColor * directionalLightWeighting
+        }
+    </script>
     <!-- built files will be auto injected -->
-  </body>
+</body>
 </html>

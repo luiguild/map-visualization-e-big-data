@@ -23,15 +23,17 @@
         .box
             h1.title.is-1 Luigui Delyer
             h1.subtitle.is-5 (Sim, isso é um nome)
-            h2.subtitle.is-4.is-marginless.has-text-centered Senior Front-End Developer @ WebRadar
-            h2.subtitle.is-4.is-marginless.has-text-centered Reps @ Mozilla Foundation
-            h2.subtitle.is-4.is-marginless.has-text-centered Criador do Tekoá e VBar
-            h2.subtitle.is-4.is-marginless.has-text-centered Ativista de software livre
+            h2.subtitle.is-4.is-marginless.has-text-centered Front-End @ WebRadar
+            h2.subtitle.is-4.is-marginless.has-text-centered Reps @ Mozilla
+            h2.subtitle.is-4.is-marginless.has-text-centered Criador do ArcEasy, VBar e Tekoá
             h1.subtitle.is-4.is-marginless.has-text-centered
+                br
                 | Apaixonado pela web
                 br
                 | desde quando fazia barulho
-            h1.subtitle.is-5.is-marginless.has-text-centered Sou daqueles que pagam internet pra ver memes
+            h1.subtitle.is-5.is-marginless.has-text-centered
+                br
+                | Sou daqueles que pagam internet pra ver memes
 </template>
 
 <script>

@@ -31,7 +31,8 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
-    import * as libESRI from '@/assets/modules'
+    // import * as libESRI from '@/assets/modules'
+    import * as arceasy from 'arceasy'
     import * as logger from '@/assets/modules/logger'
     import slide2 from '../atoms/slide-2'
     import slide3 from '../atoms/slide-3'
@@ -55,12 +56,17 @@
             component: '',
             slides: [
                 {
+                    title: 'null',
                     extent: {},
                     camera: {},
                     basemap: ''
                 },
                 {
-                    title: 'welcome',
+                    title: 'initial',
+                    light: {
+                        cameraTracking: false,
+                        date: 'now'
+                    },
                     coordinates: {
                         latitude: -13.78,
                         longitude: -52.17
@@ -74,6 +80,9 @@
                 },
                 {
                     title: 'cover',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -34.026807,
                         longitude: 18.350787
@@ -87,6 +96,9 @@
                 },
                 {
                     title: 'mind blown',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -34.026807,
                         longitude: 18.350787
@@ -100,14 +112,17 @@
                 },
                 {
                     title: 'about',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
-                        latitude: -20.267847,
-                        longitude: -50.248642
+                        latitude: -20.26,
+                        longitude: -50.245
                     },
                     scale: 20000,
                     camera: {
-                        tilt: 65,
-                        heading: 40
+                        tilt: 70,
+                        heading: 10
                     },
                     basemap: 'satellite',
                     symbol: {
@@ -124,14 +139,17 @@
                 },
                 {
                     title: 'stack',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
-                        latitude: -22.907406,
-                        longitude: -43.112915
+                        latitude: -22.915,
+                        longitude: -43.105
                     },
                     scale: 20000,
                     camera: {
                         tilt: 70,
-                        heading: 250
+                        heading: 200
                     },
                     basemap: 'satellite',
                     symbol: {
@@ -148,6 +166,9 @@
                 },
                 {
                     title: 'webradar',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -22.962179,
                         longitude: -43.182069
@@ -172,6 +193,9 @@
                 },
                 {
                     title: 'sygic - hong kong',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 22.29832407873191,
                         longitude: 114.1549925655292
@@ -186,6 +210,9 @@
                 },
                 {
                     title: '99 SP',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -23.56289384931269,
                         longitude: -46.6547070000082
@@ -200,6 +227,9 @@
                 },
                 {
                     title: 'mapas são poderosos',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 8.956709869641337,
                         longitude: -79.56912269795791
@@ -213,6 +243,9 @@
                 },
                 {
                     title: 'esri',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 8.956709869641337,
                         longitude: -79.56912269795791
@@ -226,6 +259,9 @@
                 },
                 {
                     title: 'ma utilização',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -12.13479271004742,
                         longitude: -39.35211653166833
@@ -239,6 +275,9 @@
                 },
                 {
                     title: 'possibilidades',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 82.42876297646607,
                         longitude: -74.92952491669847
@@ -252,6 +291,9 @@
                 },
                 {
                     title: 'cidades - fernandópolis e região',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -20.264693,
                         longitude: -50.574931
@@ -266,6 +308,9 @@
                 },
                 {
                     title: 'cidades - fernandópolis e região',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -20.264693,
                         longitude: -50.574931
@@ -280,6 +325,9 @@
                 },
                 {
                     title: 'cidades - fernandópolis e região',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -20.264693,
                         longitude: -50.574931
@@ -294,6 +342,9 @@
                 },
                 {
                     title: 'cidades - fernandópolis e região',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -20.264693,
                         longitude: -50.574931
@@ -308,6 +359,9 @@
                 },
                 {
                     title: 'como fazemos isso?',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -20.264693,
                         longitude: -50.574931
@@ -322,6 +376,9 @@
                 },
                 {
                     title: '99 RJ',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -22.96828010586395,
                         longitude: -43.18386017139429
@@ -336,6 +393,9 @@
                 },
                 {
                     title: '99 RJ',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -22.96828010586395,
                         longitude: -43.18386017139429
@@ -350,6 +410,9 @@
                 },
                 {
                     title: 'sygic - paris',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 48.852863866307175,
                         longitude: 2.3002438471155084
@@ -364,6 +427,9 @@
                 },
                 {
                     title: 'distance to supermarkets',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -23.613076481195602,
                         longitude: -46.70495241560792
@@ -379,6 +445,9 @@
                 },
                 {
                     title: 'land use',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -23.594297204885137,
                         longitude: -46.70318280923385
@@ -393,7 +462,10 @@
                     opacity: 60
                 },
                 {
-                    title: 'states',
+                    title: 'states colors',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -18.407171901856543,
                         longitude: -51.98852640010841
@@ -404,10 +476,13 @@
                         heading: 0
                     },
                     basemap: 'streets',
-                    layer: ['States']
+                    layer: ['States Colors']
                 },
                 {
                     title: 'states colors',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -18.407171901856543,
                         longitude: -51.98852640010841
@@ -422,6 +497,9 @@
                 },
                 {
                     title: 'states 3d',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -11.390017686219654,
                         longitude: -52.31754424776893
@@ -436,6 +514,9 @@
                 },
                 {
                     title: 'parque do povo',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: -23.58898691852486,
                         longitude: -46.691044527252934
@@ -450,6 +531,9 @@
                 },
                 {
                     title: 'perguntas',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 8.956709869641337,
                         longitude: -79.56912269795791
@@ -463,6 +547,9 @@
                 },
                 {
                     title: 'encerramento',
+                    light: {
+                        cameraTracking: true
+                    },
                     coordinates: {
                         latitude: 8.956709869641337,
                         longitude: -79.56912269795791
@@ -521,26 +608,40 @@
                 return this.clear.indexOf(slideId) < 0
             },
             changeMap (slideId) {
-                libESRI.layers.hideAll()
+                arceasy.layers.hideAll()
+
+                if (this.slides[slideId].light !== undefined) {
+                    if (this.slides[slideId].light.cameraTracking !== undefined) {
+                        arceasy.view.light({
+                            cameraTracking: this.slides[slideId].light.cameraTracking
+                        })
+                    }
+
+                    if (this.slides[slideId].light.date !== undefined) {
+                        arceasy.view.light({
+                            date: this.slides[slideId].light.date
+                        })
+                    }
+                }
 
                 if (this.slides[slideId].coordinates !== undefined &&
                     this.slides[slideId].scale !== undefined &&
                     this.slides[slideId].camera !== undefined) {
-                    libESRI.view.newPosition(
-                        this.slides[slideId].coordinates,
-                        this.slides[slideId].scale,
-                        this.slides[slideId].camera
-                    )
+                    arceasy.view.newPosition({
+                        coordinates: this.slides[slideId].coordinates,
+                        scale: this.slides[slideId].scale,
+                        camera: this.slides[slideId].camera
+                    })
                 }
 
                 if (this.slides[slideId].basemap !== undefined) {
-                    libESRI.view.changeBasemap(
+                    arceasy.view.changeBasemap(
                         this.slides[slideId].basemap
                     )
                 }
 
                 if (this.slides[slideId].symbol !== undefined) {
-                    libESRI.layers.addGraphicLayer(
+                    arceasy.utils.addGraphicLayer(
                         this.slides[slideId].symbol,
                         this.slides[slideId].point
                     )
@@ -548,27 +649,25 @@
 
                 if (this.slides[slideId].layer !== undefined) {
                     this.slides[slideId].layer.forEach((cur, indx, arr) => {
-                        libESRI.layers.visibility(
+                        arceasy.layers.setVisibility(
                             cur,
                             true
                         )
                     })
                 }
 
-                if (this.slides[slideId].opacity !== undefined) {
-                    libESRI.layers.opacity(
-                        this.slides[slideId].layer,
-                        this.slides[slideId].opacity
-                    )
-                } else {
-                    libESRI.layers.opacity(
-                        this.slides[slideId].layer,
-                        100
-                    )
+                if (this.slides[slideId].opacity !== undefined &&
+                    this.slides[slideId].layer !== undefined) {
+                    this.slides[slideId].layer.forEach((cur, indx, arr) => {
+                        arceasy.layers.setOpacity(
+                            cur,
+                            this.slides[slideId].opacity
+                        )
+                    })
                 }
 
                 if (slideId === 13) {
-                    libESRI.layers.removePoints()
+                    arceasy.utils.hideGraphicLayers()
                 }
             }
         },

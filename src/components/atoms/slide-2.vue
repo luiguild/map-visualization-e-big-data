@@ -21,6 +21,7 @@
         > h2
             text-shadow: 0 0 30px $black
             color: $white
+            // +upper-case
 </style>
 
 <template lang="pug">

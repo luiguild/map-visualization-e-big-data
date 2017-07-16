@@ -77,17 +77,17 @@
 
                             div > ul
                                 overflow-x: hidden
-                                +flex(column-reverse, n, flex-start, flex-start)
+                                // +flex(column-reverse, n, flex-start, flex-start)
                                 width: 100%
 
                                 > li
                                     width: 100%
 
-                                    &:first-child
-                                        border-top: solid 1px rgba(50,50,50,0.2)
-
-                                    &:last-child
-                                        border-top: none
+                                    // &:first-child
+                                    //     border-top: solid 1px rgba(50,50,50,0.2)
+                                    //
+                                    // &:last-child
+                                    //     border-top: none
 
                 .esri-search__submit-button
                     background-color: $color1
@@ -127,14 +127,49 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
-    import * as libESRI from '@/assets/modules'
+    import * as arceasy from 'arceasy'
+    // import iss from '@/assets/modules/iss'
+    import palmSprings from '@/assets/modules/palm-springs-eolic-station'
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            options: {
+                // cdn: 'http://localhost/arcgis_js_api/library/4.3/4.3/init.js',
+                cdn: 'http://localhost/arcgis_js_api/library/4.4/init.js',
+                element: 'map',
+                scale: 25000000,
+                center: {
+                    longitude: -52.17,
+                    latitude: -13.78
+                },
+                basemap: 'dark-gray',
+                stars: false,
+                atmosphere: {
+                    enable: false,
+                    quality: 'low'
+                },
+                watcher: true,
+                light: {
+                    cameraTracking: false,
+                    date: 'now'
+                },
+                search: {
+                    enable: true,
+                    position: 'top-left',
+                    index: 2
+                },
+                cors: [
+                    'http://localhost',
+                    'http://45.33.83.153',
+                    'http://45.33.83.153:3310'
+                ],
+                proxy: 'http://localhost'
+            }
+        }),
         created: function () {},
         mounted: function () {
-            libESRI.map.start(this.$refs.map)
+            this.bigBang()
         },
         updated: function () {},
         destroyed: function () {},
@@ -144,7 +179,53 @@
             ...mapState({})
         },
         methods: {
-            ...mapActions([])
+            ...mapActions([]),
+            bigBang () {
+                const allLayers = require('../../../static/json/layers-full.json')
+
+                arceasy.map.options(this.options)
+                arceasy.map.start()
+                .then(() => {
+                    arceasy.layers.add(allLayers.layers)
+                    // iss()
+                    palmSprings()
+                })
+
+                // const hsBeta = allLayers.layers.map((elm, indx, arr) => {
+                //     return {
+                //         'id': indx + 1,
+                //         'title': elm.title || 'Layer',
+                //         'visible': elm.esri.visible,
+                //         'minScale': elm.esri.minScale || '',
+                //         'maxScale': elm.esri.maxScale || '',
+                //         'type': elm.esri.type,
+                //         'progressive': elm.esri.type === 0 ? true : false, // eslint-disable-line
+                //         'url': elm.esri.url,
+                //         'definitionExpression': elm.esri.definitionExpression,
+                //         'timeRange': {
+                //             'initial': {
+                //                 'date': '',
+                //                 'time': ''
+                //             },
+                //             'end': {
+                //                 'date': '',
+                //                 'time': ''
+                //             },
+                //             'min': {
+                //                 'date': '',
+                //                 'time': ''
+                //             },
+                //             'max': {
+                //                 'date': '',
+                //                 'time': ''
+                //             }
+                //         },
+                //         'renderer': elm.esri.renderer || '',
+                //         'popupTemplate': elm.esri.popupTemplate || ''
+                //     }
+                // })
+                // console.log(JSON.stringify(hsBeta))
+            }
         },
         filters: {},
         watch: {}

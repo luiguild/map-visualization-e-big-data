@@ -4,8 +4,8 @@
     #controls
         position: absolute
         z-index: 9
-        bottom: $pixel-proportion * 2
-        right: $pixel-proportion * 2
+        bottom: $pixel-proportion * -1
+        right: $pixel-proportion * 1
         width: 100px
         height: 100px
         +flex(row, n, center, center)
@@ -41,6 +41,10 @@
             > .up
                 position: relative
                 top: $pixel-proportion * -1
+                opacity: 0
+
+            > .down
+                opacity: 0
 
             .is-disabled
                 cursor: default

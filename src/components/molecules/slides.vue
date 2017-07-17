@@ -57,6 +57,10 @@
             slides: [
                 {
                     title: 'null',
+                    light: {
+                        cameraTracking: true,
+                        date: 'now'
+                    },
                     extent: {},
                     camera: {},
                     basemap: ''
@@ -64,7 +68,7 @@
                 {
                     title: 'initial',
                     light: {
-                        cameraTracking: false,
+                        cameraTracking: true,
                         date: 'now'
                     },
                     coordinates: {

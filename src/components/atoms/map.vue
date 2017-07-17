@@ -143,7 +143,7 @@
                     longitude: -52.17,
                     latitude: -13.78
                 },
-                basemap: 'satellite',
+                basemap: 'dark-gray',
                 stars: true,
                 atmosphere: {
                     enable: true,
@@ -151,8 +151,8 @@
                 },
                 watcher: true,
                 light: {
-                    cameraTracking: true
-                    // date: 'now'
+                    cameraTracking: true,
+                    date: 'now'
                 },
                 search: {
                     enable: true,

@@ -15,7 +15,7 @@ const run = () => {
     *********************/
 
     // The clipping extent for the scene (in WGS84)
-    var mapExtent = new Extent({
+    const extentObj = {
         xmax: -130,
         xmin: -100,
         ymax: 40,
@@ -23,7 +23,9 @@ const run = () => {
         spatialReference: {
             wkid: 4326
         }
-    })
+    }
+
+    var mapExtent = new Extent(extentObj)
 
     // Request weather station data in this SR
     var inputSR = {
@@ -41,17 +43,31 @@ const run = () => {
     /*********************
     * GoTo extent
     *********************/
-    view.goTo(mapExtent)
-    view.camera = {
-        position: {
-            x: -12977859.07,
-            y: 4016696.94,
-            z: 348.61,
-            spatialReference: {wkid: 102100}
-        },
-        heading: 316,
-        tilt: 85
-    }
+    // arceasy.view.newPosition({
+    //     camera: {
+    //         position: {
+    //             x: -12977859.07,
+    //             y: 4016696.94,
+    //             z: 348.61,
+    //             spatialReference: {
+    //                 wkid: 102100
+    //             }
+    //         },
+    //         heading: 316,
+    //         tilt: 85
+    //     }
+    // })
+    // view.goTo(mapExtent)
+    // view.camera = {
+    //     position: {
+    //         x: -12977859.07,
+    //         y: 4016696.94,
+    //         z: 348.61,
+    //         spatialReference: {wkid: 102100}
+    //     },
+    //     heading: 316,
+    //     tilt: 85
+    // }
 
     /*******************************************************
     * Query the wind direction (live data)

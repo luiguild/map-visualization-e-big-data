@@ -128,7 +128,7 @@
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
     import * as arceasy from 'arceasy'
-    // import iss from '@/assets/modules/iss'
+    import iss from '@/assets/modules/iss'
     import palmSprings from '@/assets/modules/palm-springs-eolic-station'
 
     export default {
@@ -143,16 +143,16 @@
                     longitude: -52.17,
                     latitude: -13.78
                 },
-                basemap: 'dark-gray',
-                stars: false,
+                basemap: 'satellite',
+                stars: true,
                 atmosphere: {
-                    enable: false,
-                    quality: 'low'
+                    enable: true,
+                    quality: 'high'
                 },
                 watcher: true,
                 light: {
-                    cameraTracking: false,
-                    date: 'now'
+                    cameraTracking: true
+                    // date: 'now'
                 },
                 search: {
                     enable: true,
@@ -187,7 +187,7 @@
                 arceasy.map.start()
                 .then(() => {
                     arceasy.layers.add(allLayers.layers)
-                    // iss()
+                    iss()
                     palmSprings()
                 })
 

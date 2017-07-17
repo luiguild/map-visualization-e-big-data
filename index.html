@@ -27,32 +27,31 @@
     <script src="static/js/three.js"></script>
     <script src="static/js/OBJLoader.js"></script>
     <script src="static/js/windmill.js"></script>
-    <script src="static/js/gl-matrix-min.js"></script>
 
-    <script id='shader-fs' type='x-shader/x-fragment'>
-        precision mediump float
-        varying vec3 vLightColor
-        void main (void) {
-            gl_FragColor = vec4(vLightColor, 1.0)
+    <script id="shader-fs" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec3 vLightColor;
+        void main(void) {
+            gl_FragColor = vec4(vLightColor, 1.0);
         }
     </script>
 
-    <script id='shader-vs' type='x-shader/x-vertex'>
-        attribute vec3 aVertexPosition
-        attribute vec3 aVertexNormal
-        uniform mat4 uModelViewMatrix
-        uniform mat4 uProjectionMatrix
-        uniform mat3 uNormalMatrix
-        uniform vec3 uAmbientColor
-        uniform vec3 uLightingDirection
-        uniform vec3 uDirectionalColor
-        varying vec3 vLightColor
-        void main (void) {
-            gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0)
-            vec3 transformedNormal = normalize(uNormalMatrix * aVertexNormal)
+    <script id="shader-vs" type="x-shader/x-vertex">
+        attribute vec3 aVertexPosition;
+        attribute vec3 aVertexNormal;
+        uniform mat4 uModelViewMatrix;
+        uniform mat4 uProjectionMatrix;
+        uniform mat3 uNormalMatrix;
+        uniform vec3 uAmbientColor;
+        uniform vec3 uLightingDirection;
+        uniform vec3 uDirectionalColor;
+        varying vec3 vLightColor;
+        void main(void) {
+            gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
+            vec3 transformedNormal = normalize(uNormalMatrix * aVertexNormal);
 
-            float directionalLightWeighting = max(dot(transformedNormal, uLightingDirection), 0.0)
-            vLightColor = uAmbientColor + uDirectionalColor * directionalLightWeighting
+            float directionalLightWeighting = max(dot(transformedNormal, uLightingDirection), 0.0);
+            vLightColor = uAmbientColor + uDirectionalColor * directionalLightWeighting;
         }
     </script>
     <!-- built files will be auto injected -->

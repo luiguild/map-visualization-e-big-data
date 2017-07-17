@@ -1,10 +1,11 @@
 import * as arceasy from 'arceasy'
 
 const run = () => {
-    var view = arceasy.obj.view
-    var externalRenderers = arceasy.obj.constructors.externalRenderers
-    var SpatialReference = arceasy.obj.constructors.utils.SpatialReference
-    var esriRequest = arceasy.obj.constructors.utils.esriRequest
+    const view = arceasy.obj.view
+    const externalRenderers = arceasy.obj.constructors.externalRenderers
+    const SpatialReference = arceasy.obj.constructors.utils.SpatialReference
+    const esriRequest = arceasy.obj.constructors.utils.esriRequest
+    const issMeshUrl = 'static/img/iss.obj'
 
     // Disable lighting based on the current camera position.
     // We want to display the lighting according to the current time of day.
@@ -75,7 +76,6 @@ const run = () => {
             this.markerMaterial = new THREE.MeshBasicMaterial({color: 0xe03110, transparent: true, opacity: 0.75})
 
             // load ISS mesh
-            var issMeshUrl = '../../static/img/iss.obj'
             var loader = new THREE.OBJLoader(THREE.DefaultLoadingManager)
             loader.load(issMeshUrl, function (object3d) {
                 console.log('ISS mesh loaded.')

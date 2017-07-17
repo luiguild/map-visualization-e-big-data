@@ -8,6 +8,7 @@ const run = () => {
     const Query = arceasy.obj.constructors.utils.Query
     const declare = arceasy.obj.constructors.utils.declare
     const all = arceasy.obj.constructors.dojo.all
+    const glMatrix = require('../../../static/js/gl-matrix-min.js')
 
     /*********************
     * Settings
@@ -64,7 +65,7 @@ const run = () => {
         var query = new Query()
         query.returnGeometry = true
         query.outFields = ['WIND_DIRECT', 'WIND_SPEED']
-        query.where = 'STATION_NAME = "Palm Springs"'
+        query.where = "STATION_NAME = 'Palm Springs'"
 
         return queryTask.execute(query)
         .then(function (results) {
@@ -551,7 +552,6 @@ const run = () => {
 }
 
 const palmSprings = () => {
-    console.log('arceasy.obj.view.ready', arceasy.obj.view.ready)
     if (arceasy.obj.view !== '' && arceasy.obj.view !== undefined) {
         run()
     }

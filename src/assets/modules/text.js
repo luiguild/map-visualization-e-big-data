@@ -5,13 +5,6 @@ const run = () => {
     const externalRenderers = arceasy.obj.constructors.externalRenderers
     const SpatialReference = arceasy.obj.constructors.utils.SpatialReference
     const esriRequest = arceasy.obj.constructors.utils.esriRequest
-    const issMeshUrl = 'static/img/iss.obj'
-
-    // Disable lighting based on the current camera position.
-    // We want to display the lighting according to the current time of day.
-    // view.environment.lighting.cameraTrackingEnabled = false
-
-    // Create our custom external renderer
 
     var issExternalRenderer = {
         renderer: null,     // three.js renderer
@@ -21,15 +14,13 @@ const run = () => {
         ambient: null,      // three.js ambient light source
         sun: null,          // three.js sun light source
 
-        iss: null,                                                          // ISS model
-        issScale: 40000,                                                    // scale for the iss model
-        issMaterial: new THREE.MeshLambertMaterial({color: 0xe03110}),    // material for the ISS model
-
         cameraPositionInitialized: true, // we focus the view on the ISS once we receive our first data point
         positionHistory: [],              // all ISS positions received so far
 
         markerMaterial: null,    // material for the markers left by the ISS
         markerGeometry: null,    // geometry for the markers left by the ISS
+        textGeo: null,
+        cubeMat: new THREE.MeshLambertMaterial({color: 0xff3300}),
 
         /**
         * Setup function, called once by the ArcGIS JS API.
@@ -71,43 +62,45 @@ const run = () => {
             this.sun = new THREE.DirectionalLight(0xffffff, 0.5)
             this.scene.add(this.sun)
 
-            // setup markers
-            this.markerGeometry = new THREE.SphereBufferGeometry(12 * 1000, 16, 16)
-            this.markerMaterial = new THREE.MeshBasicMaterial({color: 0xe03110, transparent: true, opacity: 0.75})
+            // var text = 'aems'
+            var height = 200000
+            var size = 3000000
+            var curveSegments = 10
+            var bevelThickness = 1
+            var bevelSize = 0.5
+            var bevelSegments = 5
+            var bevelEnabled = true
+            var font = undefined // eslint-disable-line
 
-            // load ISS mesh
-            var loader = new THREE.OBJLoader(THREE.DefaultLoadingManager)
-            loader.load(issMeshUrl, function (object3d) {
-                console.log('ISS mesh loaded.')
-                this.iss = object3d
+            var loader = new THREE.FontLoader()
 
-                // apply ISS material to all nodes in the geometry
-                this.iss.traverse(function (child) {
-                    if (child instanceof THREE.Mesh) {
-                        child.material = this.issMaterial
-                    }
-                }.bind(this))
+            // load font
+            loader.load('../../static/js/neutra-text_bold.json', function (res) {
+                font = res
 
-                // set the specified scale for the model
-                this.iss.scale.set(this.issScale, this.issScale, this.issScale)
+                this.textGeo = new THREE.TextGeometry('FUCK YOU', {
+                    font: font,
+                    size: size,
+                    height: height,
+                    curveSegments: curveSegments,
+                    weight: 'normal',
+                    bevelThickness: bevelThickness,
+                    bevelSize: bevelSize,
+                    bevelSegments: bevelSegments,
+                    bevelEnabled: bevelEnabled
+                })
+                // textGeo.computeBoundingBox()
+                // textGeo.computeVertexNormals()
+                this.text = new THREE.Mesh(this.textGeo, this.cubeMat)
+                this.text.position.set(-3680771.7550677415, -4627666.118733402, -3313573.1124258405)
+                // this.text.position.set(0, 0, 0)
+                // this.text.castShadow = true
 
-                // add the model
-                this.scene.add(this.iss)
+                // this.scene.add(this.text)
             }.bind(this), undefined, function (error) {
-                console.error('Error loading ISS mesh. ', error)
+                console.error('Error loading font. ', error)
             })
 
-            // create the horizon model
-            var mat = new THREE.MeshBasicMaterial({color: 0xe03110})
-            mat.transparent = true
-            mat.opacity = 0.5
-            this.region = new THREE.Mesh(
-                new THREE.TorusBufferGeometry(2294 * 1000, 100 * 1000, 16, 64),
-                mat
-            )
-            this.scene.add(this.region)
-
-            // start querying the ISS position
             this.queryISSPosition()
 
             // cleanup after ourselfs
@@ -120,38 +113,28 @@ const run = () => {
 
             this.camera.position.set(cam.eye[0], cam.eye[1], cam.eye[2])
             this.camera.up.set(cam.up[0], cam.up[1], cam.up[2])
+            // this.camera.position.set(0, 0, 0)
+            // this.camera.up.set(0, 0, 0)
             this.camera.lookAt(new THREE.Vector3(cam.center[0], cam.center[1], cam.center[2]))
+            // this.camera.lookAt(new THREE.Vector3(0, 0, 0))
 
             // Projection matrix can be copied directly
             this.camera.projectionMatrix.fromArray(cam.projectionMatrix)
 
-            // update ISS and region position
-            if (this.iss) {
-                var posEst = this.computeISSPosition()
-                var renderPos = [0, 0, 0]
-                externalRenderers.toRenderCoordinates(view, posEst, 0, SpatialReference.WGS84, renderPos, 0, 1)
-                this.iss.position.set(renderPos[0], renderPos[1], renderPos[2])
+            // if (this.textGeo) {
+                // var posEst = this.computeISSPosition()
+                // var renderPos = [0, 0, 0]
+                // externalRenderers.toRenderCoordinates(view, posEst, 0, SpatialReference.WGS84, renderPos, 0, 1)
+                // this.textGeo.position.set(renderPos[0], renderPos[1], renderPos[2])
 
                 // for the region, we position a torus slightly under ground
                 // the torus also needs to be rotated to lie flat on the ground
-                posEst = [posEst[0], posEst[1], -450 * 1000]
+                // posEst = [posEst[0], posEst[1], -450 * 1000]
 
-                var transform = new THREE.Matrix4()
-                transform.fromArray(externalRenderers.renderCoordinateTransformAt(view, posEst, SpatialReference.WGS84, new Array(16)))
-                transform.decompose(this.region.position, this.region.quaternion, this.region.scale)
-
-                // if we haven't initialized the view position yet, we do so now
-                if (this.positionHistory.length > 0 && !this.cameraPositionInitialized) {
-                    this.cameraPositionInitialized = true
-                    view.goTo({
-                        target: [posEst[0], posEst[1]],
-                        zoom: 5
-                    })
-                }
-            }
-
-            // update lighting
-            // view.environment.lighting.date = Date.now()
+                // var transform = new THREE.Matrix4()
+                // transform.fromArray(externalRenderers.renderCoordinateTransformAt(view, posEst, SpatialReference.WGS84, new Array(16)))
+                // transform.decompose(this.textGeo.position, this.textGeo.quaternion, this.textGeo.scale)
+            // }
 
             var l = context.sunLight
             this.sun.position.set(
@@ -166,7 +149,6 @@ const run = () => {
             this.ambient.color = new THREE.Color(l.ambient.color[0], l.ambient.color[1], l.ambient.color[2])
 
             // draw the scene
-
             this.renderer.resetGLState()
             this.renderer.render(this.scene, this.camera)
 
@@ -180,9 +162,6 @@ const run = () => {
         lastPosition: null,
         lastTime: null,
 
-        /**
-        * Computes an estimate for the position of the ISS based on the current time.
-        */
         computeISSPosition: function () {
             if (this.positionHistory.length === 0) { return [0, 0, 0] }
 
@@ -235,9 +214,6 @@ const run = () => {
             return newPos
         },
 
-        /**
-        * This function starts a chain of calls querying the current ISS position from open-notify.org every 5 seconds.
-        */
         queryISSPosition: function () {
             esriRequest('//open-notify-api.herokuapp.com/iss-now.json', {
                 callbackParamName: 'callback',
@@ -268,9 +244,9 @@ const run = () => {
                     var renderPos = [0, 0, 0]
                     externalRenderers.toRenderCoordinates(view, entry.pos, 0, SpatialReference.WGS84, renderPos, 0, 1)
 
-                    var markerObject = new THREE.Mesh(this.markerGeometry, this.markerMaterial)
-                    markerObject.position.set(renderPos[0], renderPos[1], renderPos[2])
-                    this.scene.add(markerObject)
+                    // var markerObject = new THREE.Mesh(this.textGeo, this.cubeMat)
+                    this.text.position.set(renderPos[0], renderPos[1], renderPos[2])
+                    // this.scene.add(markerObject)
                 }
             }.bind(this))
             .always(function () {
@@ -283,10 +259,10 @@ const run = () => {
     externalRenderers.add(view, issExternalRenderer)
 }
 
-const iss = () => {
+const text = () => {
     if (arceasy.obj.view !== '' && arceasy.obj.view !== undefined) {
         run()
     }
 }
 
-export default iss
+export default text

@@ -44,6 +44,9 @@
     export default {
         props: [],
         data: () => ({}),
+        activate: function () {
+            console.log('activate')
+        },
         created: function () {},
         mounted: function () {},
         updated: function () {},

@@ -128,8 +128,10 @@
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
     import * as arceasy from 'arceasy'
-    import iss from '@/assets/modules/iss'
-    import palmSprings from '@/assets/modules/palm-springs-eolic-station'
+    // import iss from '@/assets/modules/iss'
+    // import text from '@/assets/modules/text'
+    // import palmSprings from '@/assets/modules/palm-springs-eolic-station'
+    import pointCloud from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
@@ -138,7 +140,7 @@
                 // cdn: 'http://localhost/arcgis_js_api/library/4.3/4.3/init.js',
                 cdn: 'http://localhost/arcgis_js_api/library/4.4/init.js',
                 element: 'map',
-                scale: 25000000,
+                scale: 2500000000,
                 center: {
                     longitude: -52.17,
                     latitude: -13.78
@@ -146,12 +148,12 @@
                 basemap: 'dark-gray',
                 stars: true,
                 atmosphere: {
-                    enable: true,
-                    quality: 'high'
+                    enable: false,
+                    quality: 'low'
                 },
                 watcher: true,
                 light: {
-                    cameraTracking: true,
+                    cameraTracking: false,
                     date: 'now'
                 },
                 search: {
@@ -187,8 +189,10 @@
                 arceasy.map.start()
                 .then(() => {
                     arceasy.layers.add(allLayers.layers)
-                    iss()
-                    palmSprings()
+                    // iss()
+                    // text()
+                    // palmSprings()
+                    pointCloud()
                 })
 
                 // const hsBeta = allLayers.layers.map((elm, indx, arr) => {

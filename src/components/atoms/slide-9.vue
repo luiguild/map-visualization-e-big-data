@@ -38,7 +38,6 @@
             h2.subtitle.is-3.is-marginless Mapbox
             h2.subtitle.is-3.is-marginless HERE Maps
             h2.subtitle.is-3.is-marginless Google Maps
-            h2.subtitle.is-3.is-marginless Leaflet
 </template>
 
 <script>

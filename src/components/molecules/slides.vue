@@ -59,7 +59,7 @@
                     title: 'null',
                     light: {
                         cameraTracking: true,
-                        date: 'now'
+                        date: ''
                     },
                     extent: {},
                     camera: {},

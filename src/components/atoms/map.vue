@@ -131,7 +131,7 @@
     // import iss from '@/assets/modules/iss'
     // import text from '@/assets/modules/text'
     // import palmSprings from '@/assets/modules/palm-springs-eolic-station'
-    import pointCloud from '@/assets/modules/point-cloud'
+    // import pointCloud from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
@@ -152,10 +152,10 @@
                     quality: 'low'
                 },
                 watcher: true,
-                light: {
-                    cameraTracking: false,
-                    date: 'now'
-                },
+                // light: {
+                //     cameraTracking: false,
+                //     date: 'now'
+                // },
                 search: {
                     enable: true,
                     position: 'top-left',
@@ -192,7 +192,7 @@
                     // iss()
                     // text()
                     // palmSprings()
-                    pointCloud()
+                    // pointCloud()
                 })
 
                 // const hsBeta = allLayers.layers.map((elm, indx, arr) => {

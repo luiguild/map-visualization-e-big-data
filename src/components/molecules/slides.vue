@@ -308,7 +308,7 @@
                         heading: 0
                     },
                     basemap: 'hybrid',
-                    layer: ['Cities']
+                    layer: ['Cities Rendered Outline White']
                 },
                 {
                     title: 'cidades - fernandópolis e região',
@@ -325,7 +325,7 @@
                         heading: 0
                     },
                     basemap: 'none',
-                    layer: ['Cities Rendered White']
+                    layer: ['Cities Rendered Black']
                 },
                 {
                     title: 'cidades - fernandópolis e região',
@@ -615,11 +615,11 @@
                 arceasy.layers.hideAll()
 
                 if (this.slides[slideId].light !== undefined) {
-                    if (this.slides[slideId].light.cameraTracking !== undefined) {
-                        arceasy.view.light({
-                            cameraTracking: this.slides[slideId].light.cameraTracking
-                        })
-                    }
+                    // if (this.slides[slideId].light.cameraTracking !== undefined) {
+                    //     arceasy.view.light({
+                    //         cameraTracking: this.slides[slideId].light.cameraTracking
+                    //     })
+                    // }
 
                     if (this.slides[slideId].light.date !== undefined) {
                         arceasy.view.light({

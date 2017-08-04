@@ -36,6 +36,7 @@
             h2.subtitle.is-3.is-marginless ArcGIS
             h2.subtitle.is-3.is-marginless OpenStreetMap
             h2.subtitle.is-3.is-marginless Mapbox
+            h2.subtitle.is-3.is-marginless CartoDB
             h2.subtitle.is-3.is-marginless HERE Maps
             h2.subtitle.is-3.is-marginless Google Maps
 </template>

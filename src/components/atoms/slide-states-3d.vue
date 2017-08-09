@@ -6,39 +6,21 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
-        transform: rotate(-40deg)
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 400px
+            width: 500px
             height: 100%
-            background-color: $transparent
-            box-shadow: none
-            border: none
+            background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h1
+            h1
                 font-weight: 900
-                font-size: 80px
-                line-height: 65px
-
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.title.is-1.has-text-centered Mapas são poderosos!
-            h2.subtitle.is-3.is-marginless ArcGIS
-            h2.subtitle.is-3.is-marginless OpenStreetMap
-            h2.subtitle.is-3.is-marginless Mapbox
-            h2.subtitle.is-3.is-marginless CartoDB
-            h2.subtitle.is-3.is-marginless HERE Maps
-            h2.subtitle.is-3.is-marginless Google Maps
 </template>
 
 <script>
@@ -46,7 +28,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'states-3d',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -11.390017686219654,
+                    longitude: -52.31754424776893
+                },
+                scale: 33815017,
+                camera: {
+                    tilt: 10,
+                    heading: 0
+                },
+                basemap: 'streets',
+                layer: ['States 3D']
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

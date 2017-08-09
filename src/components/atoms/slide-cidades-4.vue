@@ -6,37 +6,21 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 100%
+            width: 500px
             height: 100%
-            // background-color: transparentize($white, .1)
-            background-color: $transparent
-            box-shadow: none
-            border: none
+            background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h1
+            h1
                 font-weight: 900
-                font-size: 170px
-                line-height: 160px
-
-            > h2
-                font-size: 30px
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.subtitle.is-1.is-marginless.has-text-centered Perguntas?
-            h2.subtitle.is-4.has-text-centered.is-marginless Eu espero fortemente que isso tudo que você viu
-            h2.subtitle.is-4.has-text-centered.is-marginless tenha te gerado alguma dúvida...
 </template>
 
 <script>
@@ -44,7 +28,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'cidades-4',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -20.264693,
+                    longitude: -50.574931
+                },
+                scale: 800000,
+                camera: {
+                    tilt: 45,
+                    heading: 320
+                },
+                basemap: 'hybrid',
+                layer: ['Cities Rendered 3D']
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

@@ -11,7 +11,7 @@
         > .box
             width: 100%
             height: 100%
-            background-color: transparentize($white, .1)
+            background-color: transparentize($white, .3)
             box-shadow: none
             border: none
             +flex(column, n, center, center)
@@ -30,10 +30,14 @@
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.is-marginless.has-text-centered Raster Layer
-            h2.subtitle.is-4.has-text-centered Dados raster (ou bitmap, que significa mapa de bits em inglês) são imagens que contêm a descrição de cada pixel, em oposição aos gráficos vectoriais.
-            h2.subtitle.is-4.has-text-centered O tratamento de imagens deste tipo requer ferramentas especializadas, geralmente utilizadas em fotografia, pois envolvem cálculos muito complexos, como interpolação, álgebra matricial, etc.
-            h4.subtitle.is-5 Fonte: Wikipédia
+            h1.subtitle.is-1.has-text-centered O que mais podemos fazer?
+            h2.subtitle.is-3.is-marginless Pontos de interesse (POI)
+            h2.subtitle.is-3.is-marginless Geocode reverso
+            h2.subtitle.is-3.is-marginless Traçar rotas e cruzar informações
+            h2.subtitle.is-3.is-marginless Controle logístico
+            h2.subtitle.is-3.is-marginless Camadas de dados diversos
+            h2.subtitle.is-3.is-marginless Projeção de prédios, monumentos
+            h2.subtitle.is-3.is-marginless Qualquer coisa do mundo real
 </template>
 
 <script>
@@ -41,7 +45,24 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'possibilidades',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: 82.42876297646607,
+                    longitude: -74.92952491669847
+                },
+                scale: 10000000,
+                camera: {
+                    tilt: 90,
+                    heading: 0
+                },
+                basemap: 'satellite'
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

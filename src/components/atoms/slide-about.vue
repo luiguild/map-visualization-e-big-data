@@ -16,6 +16,8 @@
 
             h1
                 font-weight: 900
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
@@ -41,7 +43,35 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'about',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -20.26,
+                    longitude: -50.245
+                },
+                scale: 20000,
+                camera: {
+                    tilt: 70,
+                    heading: 10
+                },
+                basemap: 'satellite',
+                symbol: {
+                    width: 700,
+                    height: 1000,
+                    primitive: 'inverted-cone',
+                    color: '#E1392F'
+                },
+                point: {
+                    x: -50.258994,
+                    y: -20.267383,
+                    z: 550
+                }
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

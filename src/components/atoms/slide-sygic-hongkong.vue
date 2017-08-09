@@ -6,37 +6,21 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 100%
+            width: 500px
             height: 100%
-            // background-color: transparentize($white, .3)
-            background-color: $transparent
-            box-shadow: none
-            border: none
+            background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h2
-                font-size: 70px
-                line-height: 70px
-
-            > h1
+            h1
                 font-weight: 900
-                font-size: 170px
-                line-height: 100px
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h2.subtitle.is-3.is-marginless Como fazemos isso?
-            h1.subtitle.is-1.is-marginless.has-text-centered Layers!
 </template>
 
 <script>
@@ -44,7 +28,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'sygic-hongkong',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: 22.29832407873191,
+                    longitude: 114.1549925655292
+                },
+                scale: 60000,
+                camera: {
+                    tilt: 65,
+                    heading: 20
+                },
+                basemap: 'satellite',
+                layer: ['Sygic Global']
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

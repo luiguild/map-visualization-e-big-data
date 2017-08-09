@@ -42,7 +42,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'vector',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -18.407171901856543,
+                    longitude: -51.98852640010841
+                },
+                scale: 25766491,
+                camera: {
+                    tilt: 10,
+                    heading: 0
+                },
+                basemap: 'streets',
+                layer: ['States Colors']
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

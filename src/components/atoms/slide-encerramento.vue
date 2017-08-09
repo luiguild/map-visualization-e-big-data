@@ -50,7 +50,24 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'encerramento',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: 8.956709869641337,
+                    longitude: -79.56912269795791
+                },
+                scale: 10000000000,
+                camera: {
+                    tilt: 90,
+                    heading: 0
+                },
+                basemap: 'satellite'
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

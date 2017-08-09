@@ -3,26 +3,24 @@
 
     #internal
         position: relative
-        height: 100%
-        width: 100%
+        height: 80%
+        width: 75%
+        border-radius: $pixel-proportion / 2
         +flex(row, n, flex-end, center)
 
         > .box
-            padding: 0
-            width: 100%
+            width: 500px
             height: 100%
             background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            img
-                height: 100%
-                width: 100%
+            h1
+                font-weight: 900
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            img(src="static/img/mind-blown.gif")
 </template>
 
 <script>
@@ -30,7 +28,26 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'land-use',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -23.594297204885137,
+                    longitude: -46.70318280923385
+                },
+                scale: 10079,
+                camera: {
+                    tilt: 0,
+                    heading: 0
+                },
+                basemap: 'streets',
+                layer: ['Land Use São Paulo'],
+                opacity: 60
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

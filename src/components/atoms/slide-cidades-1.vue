@@ -16,17 +16,11 @@
 
             h1
                 font-weight: 900
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.title.is-1 WebRadar
-            h1.subtitle.is-5 www.webradar.com
-            h1.subtitle.is-3.is-marginless NPI
-            h1.subtitle.is-4.is-marginless.has-text-centered Novos produtos, pesquisa e inovação
-            h2.subtitle.is-4.has-text-centered Criamos SaaS inteligentes que envolvem mapas, geoprocessamento de big data e analytics para internet das coisas utilizando redes neurais, código genético e muito malabarismo pra ligar tudo isso em soluções que atendam clientes de telecom, transportes, segurança e energia no mundo todo.
-            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, OpenStreetMap, Mapbox, HERE Maps, Google Maps e Leaflet.
 </template>
 
 <script>
@@ -34,7 +28,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'cidades-1',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -20.264693,
+                    longitude: -50.574931
+                },
+                scale: 500000,
+                camera: {
+                    tilt: 0,
+                    heading: 0
+                },
+                basemap: 'hybrid',
+                layer: ['Cities Rendered Outline White']
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

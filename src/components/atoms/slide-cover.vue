@@ -43,10 +43,25 @@
 
     export default {
         props: [],
-        data: () => ({}),
-        activate: function () {
-            console.log('activate')
-        },
+        data: () => ({
+            info: {
+                id: 'cover',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -34.026807,
+                    longitude: 18.350787
+                },
+                scale: 30000,
+                camera: {
+                    tilt: 60,
+                    heading: 130
+                },
+                basemap: 'satellite'
+            }
+        }),
+        activate: function () {},
         created: function () {},
         mounted: function () {},
         updated: function () {},

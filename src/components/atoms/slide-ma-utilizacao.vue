@@ -11,33 +11,37 @@
         > .box
             width: 100%
             height: 100%
-            background-color: transparentize($white, .3)
+            background-color: $transparent
             box-shadow: none
             border: none
             +flex(column, n, center, center)
 
             > h1,
             > h2
-                // color: $white
-                // text-shadow: 0 0 30px $black
+                color: $white
+                text-shadow: 0 0 30px $black
 
             > h1
                 font-weight: 900
                 font-size: 70px
                 line-height: 50px
+
+            > .fa-map-marker
+                text-shadow: 0 0 30px $black
+                font-size: 400px
+                color: $white
+
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.has-text-centered O que mais podemos fazer?
-            h2.subtitle.is-3.is-marginless Pontos de interesse (POI)
-            h2.subtitle.is-3.is-marginless Geocode reverso
-            h2.subtitle.is-3.is-marginless Traçar rotas e cruzar informações
-            h2.subtitle.is-3.is-marginless Controle logístico
-            h2.subtitle.is-3.is-marginless Camadas de dados diversos
-            h2.subtitle.is-3.is-marginless Projeção de prédios, monumentos
-            h2.subtitle.is-3.is-marginless Qualquer coisa do mundo real
+            h2.subtitle.is-3.is-marginless Bla bla bla...
+            h1.subtitle.is-1.is-marginless.has-text-centered
+                | Minha empresa
+                br
+                | fica aqui
+            i.fa.fa-map-marker
 </template>
 
 <script>
@@ -45,7 +49,24 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'ma-utilizacao',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -12.13479271004742,
+                    longitude: -39.35211653166833
+                },
+                scale: 10000,
+                camera: {
+                    tilt: 75,
+                    heading: 0
+                },
+                basemap: 'satellite'
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

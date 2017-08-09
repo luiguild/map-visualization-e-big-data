@@ -1,10 +1,35 @@
 // import Vue from 'vue'
 
 export default {
-    actual: 1,
-    slides: 28,
-    clear: [1, 7, 8, 13, 14, 15, 16, 19, 20, 21, 22, 24, 25, 26],
-    up: [],
-    down: [],
-    visibility: true
+    visibility: true,
+    slides: [
+        'initial',
+        'cover',
+        'mind-blown',
+        'about',
+        'stack',
+        'webradar',
+        'sygic-hongkong',
+        '99-SP',
+        'mapas-sao-poderosos',
+        'esri',
+        'ma-utilização',
+        'possibilidades',
+        'cidades-1',
+        'cidades-2',
+        'cidades-3',
+        'cidades-4',
+        'como-fazemos-isso',
+        'raster',
+        '99-RJ',
+        'sygic-paris',
+        'distance-to-supermarkets',
+        'land-use',
+        'vector',
+        'states-colors',
+        'states-3d',
+        'parque-do-povo',
+        'perguntas',
+        'encerramento'
+    ]
 }

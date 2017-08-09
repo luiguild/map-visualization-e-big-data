@@ -3,28 +3,26 @@
 
     #internal
         position: relative
-        height: 80%
-        width: 75%
-        border-radius: $pixel-proportion / 2
-        +flex(row, n, flex-start, center)
+        height: 100%
+        width: 100%
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 500px
+            padding: 0
+            width: 100%
             height: 100%
             background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            h1
-                font-weight: 900
+            img
+                height: 100%
+                width: 100%
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.is-marginless Javascript
-            h1.subtitle.is-1.is-marginless VueJS
-            h1.subtitle.is-1.is-marginless PugLang
-            h1.subtitle.is-1.is-marginless SASS
+            img(src="static/img/mind-blown.gif")
 </template>
 
 <script>
@@ -32,7 +30,24 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'mind-blown',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -34.026807,
+                    longitude: 18.350787
+                },
+                scale: 30000,
+                camera: {
+                    tilt: 60,
+                    heading: 130
+                },
+                basemap: 'satellite'
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

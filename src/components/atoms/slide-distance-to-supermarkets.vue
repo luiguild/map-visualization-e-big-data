@@ -6,34 +6,21 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 100%
+            width: 500px
             height: 100%
-            background-color: $transparent
-            box-shadow: none
-            border: none
+            background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h1
+            h1
                 font-weight: 900
-                font-size: 190px
-                line-height: 120px
-
+            .title
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.title.is-1.is-marginless.has-text-centered ESRI
-            h2.subtitle.is-1.is-marginless ArcGIS
-            h2.subtitle.is-4.is-marginless developers.arcgis.com
 </template>
 
 <script>
@@ -41,7 +28,26 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'distance-to-supermarkets',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: -23.613076481195602,
+                    longitude: -46.70495241560792
+                },
+                scale: 19083,
+                camera: {
+                    tilt: 0,
+                    heading: 0
+                },
+                basemap: 'streets',
+                layer: ['Distance to Supermarkets'],
+                opacity: 50
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

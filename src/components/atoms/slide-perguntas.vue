@@ -11,6 +11,7 @@
         > .box
             width: 100%
             height: 100%
+            // background-color: transparentize($white, .1)
             background-color: $transparent
             box-shadow: none
             border: none
@@ -23,25 +24,19 @@
 
             > h1
                 font-weight: 900
-                font-size: 70px
-                line-height: 50px
+                font-size: 170px
+                line-height: 160px
 
-            > .fa-map-marker
-                text-shadow: 0 0 30px $black
-                font-size: 400px
-                color: $white
-
+            > h2
+                font-size: 30px
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h2.subtitle.is-3.is-marginless Bla bla bla...
-            h1.subtitle.is-1.is-marginless.has-text-centered
-                | Minha empresa
-                br
-                | fica aqui
-            i.fa.fa-map-marker
+            h1.subtitle.is-1.is-marginless.has-text-centered Perguntas?
+            h2.subtitle.is-4.has-text-centered.is-marginless Eu espero fortemente que isso tudo que você viu
+            h2.subtitle.is-4.has-text-centered.is-marginless tenha te gerado alguma dúvida...
 </template>
 
 <script>
@@ -49,7 +44,24 @@
 
     export default {
         props: [],
-        data: () => ({}),
+        data: () => ({
+            info: {
+                id: 'perguntas',
+                light: {
+                    cameraTracking: true
+                },
+                coordinates: {
+                    latitude: 8.956709869641337,
+                    longitude: -79.56912269795791
+                },
+                scale: 10000000000,
+                camera: {
+                    tilt: 90,
+                    heading: 0
+                },
+                basemap: 'satellite'
+            }
+        }),
         created: function () {},
         mounted: function () {},
         updated: function () {},

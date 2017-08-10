@@ -32,59 +32,92 @@
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
     // import * as libESRI from '@/assets/modules'
-    import * as arceasy from 'arceasy'
+    // import * as arceasy from 'arceasy'
     import * as logger from '@/assets/modules/logger'
-    import slide2 from '../atoms/slide-2'
-    import slide3 from '../atoms/slide-3'
-    import slide4 from '../atoms/slide-4'
-    import slide5 from '../atoms/slide-5'
-    import slide6 from '../atoms/slide-6'
-    import slide9 from '../atoms/slide-9'
-    import slide10 from '../atoms/slide-10'
-    import slide11 from '../atoms/slide-11'
-    import slide12 from '../atoms/slide-12'
-    import slide17 from '../atoms/slide-17'
-    import slide18 from '../atoms/slide-18'
-    import slide23 from '../atoms/slide-23'
-    import slide27 from '../atoms/slide-27'
-    import slide28 from '../atoms/slide-28'
+
+    import slideInitial from '../atoms/slide-initial'
+    import slideCover from '../atoms/slide-cover'
+    import slideMindBlown from '../atoms/slide-mind-blown'
+    import slideAbout from '../atoms/slide-about'
+    import slideStack from '../atoms/slide-stack'
+    import slideWebradar from '../atoms/slide-webradar'
+    import slideSygicHongkong from '../atoms/slide-sygic-hongkong'
+    import slideSp99 from '../atoms/slide-sp-99'
+    import slideMapasSaoPoderosos from '../atoms/slide-mapas-sao-poderosos'
+    import slideEsri from '../atoms/slide-esri'
+    import slideMaUtilizacao from '../atoms/slide-ma-utilizacao'
+    import slidePossibilidades from '../atoms/slide-possibilidades'
+    import slideCidades1 from '../atoms/slide-cidades-1'
+    import slideCidades2 from '../atoms/slide-cidades-2'
+    import slideCidades3 from '../atoms/slide-cidades-3'
+    import slideCidades4 from '../atoms/slide-cidades-4'
+    import slideComoFazemosIsso from '../atoms/slide-como-fazemos-isso'
+    import slideRaster from '../atoms/slide-raster'
+    import slideRj99 from '../atoms/slide-rj-99'
+    import slideSygicParis from '../atoms/slide-sygic-paris'
+    import slideDistanceToSupermarkets from '../atoms/slide-distance-to-supermarkets'
+    import slideLandUse from '../atoms/slide-land-use'
+    import slideVector from '../atoms/slide-vector'
+    import slideStatesColors from '../atoms/slide-states-colors'
+    import slideStates3d from '../atoms/slide-states-3d'
+    import slideParqueDoPovo from '../atoms/slide-parque-do-povo'
+    import slidePerguntas from '../atoms/slide-perguntas'
+    import slideEncerramento from '../atoms/slide-encerramento'
 
     export default {
         props: [],
         data: () => ({
-            visible: false,
+            visible: true,
             component: ''
         }),
-        created: function () {},
+        created: function () {
+            this.startPresentention()
+        },
         mounted: function () {},
         updated: function () {},
         destroyed: function () {},
         components: {
-            slide2,
-            slide3,
-            slide4,
-            slide5,
-            slide6,
-            slide9,
-            slide10,
-            slide11,
-            slide12,
-            slide17,
-            slide18,
-            slide23,
-            slide27,
-            slide28
+            slideInitial,
+            slideCover,
+            slideMindBlown,
+            slideAbout,
+            slideStack,
+            slideWebradar,
+            slideSygicHongkong,
+            slideSp99,
+            slideMapasSaoPoderosos,
+            slideEsri,
+            slideMaUtilizacao,
+            slidePossibilidades,
+            slideCidades1,
+            slideCidades2,
+            slideCidades3,
+            slideCidades4,
+            slideComoFazemosIsso,
+            slideRaster,
+            slideRj99,
+            slideSygicParis,
+            slideDistanceToSupermarkets,
+            slideLandUse,
+            slideVector,
+            slideStatesColors,
+            slideStates3d,
+            slideParqueDoPovo,
+            slidePerguntas,
+            slideEncerramento
         },
         computed: {
-            ...mapGetters([]),
+            ...mapGetters([
+                'slides',
+                'slide'
+            ]),
             ...mapState({
                 actual: state => state.app.actual,
-                clear: state => state.app.clear,
                 visibility: state => state.app.visibility
             }),
             toggleSlide () {
                 if (this.visibility) {
-                    if (this.visible && this.isClear(this.actual)) {
+                    if (this.visible) {
                         return 'show'
                     } else {
                         return 'hide'
@@ -95,90 +128,19 @@
             }
         },
         methods: {
-            ...mapActions([]),
-            isClear (slideId) {
-                return this.clear.indexOf(slideId) < 0
-            },
-            changeMap (slideId) {
-                arceasy.layers.hideAll()
-
-                if (this.slides[slideId].light !== undefined) {
-                    // if (this.slides[slideId].light.cameraTracking !== undefined) {
-                    //     arceasy.view.light({
-                    //         cameraTracking: this.slides[slideId].light.cameraTracking
-                    //     })
-                    // }
-
-                    if (this.slides[slideId].light.date !== undefined) {
-                        arceasy.view.light({
-                            date: this.slides[slideId].light.date
-                        })
-                    }
-                }
-
-                if (this.slides[slideId].coordinates !== undefined &&
-                    this.slides[slideId].scale !== undefined &&
-                    this.slides[slideId].camera !== undefined) {
-                    arceasy.view.newPosition({
-                        coordinates: this.slides[slideId].coordinates,
-                        scale: this.slides[slideId].scale,
-                        camera: this.slides[slideId].camera
-                    })
-                }
-
-                if (this.slides[slideId].basemap !== undefined) {
-                    arceasy.view.changeBasemap(
-                        this.slides[slideId].basemap
-                    )
-                }
-
-                if (this.slides[slideId].symbol !== undefined) {
-                    arceasy.utils.addGraphicLayer(
-                        this.slides[slideId].symbol,
-                        this.slides[slideId].point
-                    )
-                }
-
-                if (this.slides[slideId].layer !== undefined) {
-                    this.slides[slideId].layer.forEach((cur, indx, arr) => {
-                        arceasy.layers.setVisibility(
-                            cur,
-                            true
-                        )
-                    })
-                }
-
-                if (this.slides[slideId].opacity !== undefined &&
-                    this.slides[slideId].layer !== undefined) {
-                    this.slides[slideId].layer.forEach((cur, indx, arr) => {
-                        arceasy.layers.setOpacity(
-                            cur,
-                            this.slides[slideId].opacity
-                        )
-                    })
-                }
-
-                if (slideId === 13) {
-                    arceasy.utils.hideGraphicLayers()
-                }
-            }
+            ...mapActions([
+                'startPresentention'
+            ])
         },
         filters: {},
         watch: {
             actual: function (change) {
-                logger.log(`Actual slide: ${change}`)
+                const slide = this.slides[change]
 
-                if (change > 0) {
-                    this.changeMap(change)
+                logger.log(`Actual slide: ${slide}`)
 
-                    if (this.isClear(change)) {
-                        this.component = `slide-${change}`
-                        this.visible = true
-                    } else {
-                        this.visible = false
-                    }
-                } else {
-                    this.visible = false
+                if (change >= 0) {
+                    this.component = `slide-${slide}`
                 }
             }
         }

@@ -6,7 +6,7 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, flex-start, center)
+        +flex(row, n, flex-end, center)
 
         > .box
             width: 500px
@@ -17,15 +17,10 @@
             h1
                 font-weight: 900
             .title
-                font-size: 300px
-                line-height: 250px
+                font-size: 60px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.title.is-1.is-marginless JS
-            h1.subtitle.is-1.is-marginless Vue, Pug e SASS
 </template>
 
 <script>
@@ -35,31 +30,21 @@
         props: [],
         data: () => ({
             info: {
-                id: 'stack',
+                id: 'sp-99',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -22.915,
-                    longitude: -43.105
+                    latitude: -23.56289384931269,
+                    longitude: -46.6547070000082
                 },
-                scale: 20000,
+                scale: 10000,
                 camera: {
-                    tilt: 70,
-                    heading: 200
+                    tilt: 0,
+                    heading: 0
                 },
-                basemap: 'satellite',
-                symbol: {
-                    width: 700,
-                    height: 1000,
-                    primitive: 'inverted-cone',
-                    color: '#E1392F'
-                },
-                point: {
-                    x: -43.112443,
-                    y: -22.899816,
-                    z: 100
-                }
+                basemap: 'gray',
+                layer: ['99 - LTE RSSI - São Paulo']
             }
         }),
         mounted: function () {

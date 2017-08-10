@@ -47,19 +47,27 @@
                 layer: ['Cities Rendered 3D']
             }
         }),
-        created: function () {},
-        mounted: function () {},
-        updated: function () {},
-        destroyed: function () {},
-        components: {},
+        mounted: function () {
+            this.checkSlide()
+        },
         computed: {
-            ...mapGetters([]),
-            ...mapState({})
+            ...mapGetters([
+                'slides'
+            ]),
+            ...mapState({
+                actual: state => state.app.actual
+            })
         },
         methods: {
-            ...mapActions([])
-        },
-        filters: {},
-        watch: {}
+            ...mapActions([
+                'actualSlide'
+            ]),
+            checkSlide () {
+                const slide = this.slides[this.actual]
+                if (slide === this.info.id) {
+                    this.actualSlide(this.info)
+                }
+            }
+        }
     }
 </script>

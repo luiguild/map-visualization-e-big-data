@@ -30,36 +30,43 @@
         props: [],
         data: () => ({
             info: {
-                id: '99-RJ',
+                id: 'initial',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -22.96828010586395,
-                    longitude: -43.18386017139429
+                    latitude: -13.78,
+                    longitude: -52.17
                 },
-                scale: 7245,
+                scale: 25000000,
                 camera: {
-                    tilt: 70,
+                    tilt: 0,
                     heading: 0
                 },
-                basemap: 'satellite',
-                layer: ['99 - WCDMA RSSI']
+                basemap: 'dark-gray'
             }
         }),
-        created: function () {},
-        mounted: function () {},
-        updated: function () {},
-        destroyed: function () {},
-        components: {},
+        mounted: function () {
+            this.checkSlide()
+        },
         computed: {
-            ...mapGetters([]),
-            ...mapState({})
+            ...mapGetters([
+                'slides'
+            ]),
+            ...mapState({
+                actual: state => state.app.actual
+            })
         },
         methods: {
-            ...mapActions([])
-        },
-        filters: {},
-        watch: {}
+            ...mapActions([
+                'actualSlide'
+            ]),
+            checkSlide () {
+                const slide = this.slides[this.actual]
+                if (slide === this.info.id) {
+                    this.actualSlide(this.info)
+                }
+            }
+        }
     }
 </script>

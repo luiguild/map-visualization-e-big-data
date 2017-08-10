@@ -2,6 +2,8 @@
 
 export default {
     visibility: true,
+    actual: 99,
+    slide: {},
     slides: [
         'initial',
         'cover',
@@ -10,10 +12,10 @@ export default {
         'stack',
         'webradar',
         'sygic-hongkong',
-        '99-SP',
+        'sp-99',
         'mapas-sao-poderosos',
         'esri',
-        'ma-utilização',
+        'ma-utilizacao',
         'possibilidades',
         'cidades-1',
         'cidades-2',
@@ -21,7 +23,7 @@ export default {
         'cidades-4',
         'como-fazemos-isso',
         'raster',
-        '99-RJ',
+        'rj-99',
         'sygic-paris',
         'distance-to-supermarkets',
         'land-use',

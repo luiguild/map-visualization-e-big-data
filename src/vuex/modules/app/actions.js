@@ -9,5 +9,11 @@ export default {
     },
     minimize ({ commit }, status) {
         commit('visibility', status)
+    },
+    actualSlide ({ commit }, slide) {
+        commit('setSlide', slide)
+    },
+    startPresentention ({ commit }) {
+        commit('start')
     }
 }

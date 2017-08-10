@@ -189,10 +189,9 @@
                 arceasy.map.start()
                 .then(() => {
                     arceasy.layers.add(allLayers.layers)
-                    // iss()
-                    // text()
-                    // palmSprings()
-                    // pointCloud()
+                    iss()
+                    palmSprings()
+                    pointCloud()
                 })
 
                 // const hsBeta = allLayers.layers.map((elm, indx, arr) => {

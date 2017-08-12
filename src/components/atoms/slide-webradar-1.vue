@@ -6,40 +6,38 @@
         height: 80%
         width: 75%
         border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
+        +flex(row, n, flex-end, center)
 
         > .box
-            width: 100%
+            width: 500px
             height: 100%
-            background-color: $transparent
-            box-shadow: none
-            border: none
+            background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h2
+            h1
                 font-weight: 900
+
+            .title
+                font-size: 70px
+                margin-bottom: $pixel-proportion
+
+            .npi
                 font-size: 60px
+                margin-bottom: $pixel-proportion * -2 !important
 
-            > h1
-                font-weight: 900
-                font-size: 90px
-                line-height: 70px
-
+            .npidescri
+                margin-top: 0
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h2.subtitle.is-1.is-marginless Bla bla bla...
-            h1.subtitle.is-1.is-marginless.has-text-centered
-                | Minha empresa
-                br
-                | fica aqui...
+            h1.title.is-1 WebRadar
+            h1.subtitle.is-5 www.webradar.com
+            h1.subtitle.is-3.is-marginless.npi NPI
+            h1.subtitle.is-4.is-marginless.has-text-centered.npidescri Novos produtos, pesquisa e inovação
+            h2.subtitle.is-4.has-text-centered Criamos SaaS inteligentes que envolvem mapas, geoprocessamento de big data e analytics para internet das coisas utilizando redes neurais, código genético e muito malabarismo pra ligar tudo isso em soluções que atendam clientes de telecom, transportes, segurança e energia no mundo todo.
+            h2.subtitle.is-4.is-marginless.has-text-centered Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, OpenStreetMap, HERE Maps, Google Maps e Leaflet.
 </template>
 
 <script>
@@ -49,30 +47,30 @@
         props: [],
         data: () => ({
             info: {
-                id: 'ma-utilizacao',
+                id: 'webradar-1',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -12.13479271004742,
-                    longitude: -39.35211653166833
+                    latitude: -22.962179,
+                    longitude: -43.182069
                 },
-                scale: 10000,
+                scale: 20000,
                 camera: {
-                    tilt: 75,
-                    heading: 0
+                    tilt: 77,
+                    heading: 65
                 },
                 basemap: 'satellite',
                 symbol: {
-                    width: 350,
-                    height: 500,
+                    width: 700,
+                    height: 1000,
                     primitive: 'inverted-cone',
                     color: '#E1392F'
                 },
                 point: {
-                    x: -39.34545,
-                    y: -12.1284,
-                    z: 250
+                    x: -43.181262,
+                    y: -22.953917,
+                    z: 100
                 }
             }
         }),

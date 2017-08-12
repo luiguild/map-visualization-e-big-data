@@ -17,27 +17,27 @@
             +flex(column, n, center, center)
 
             > h1,
-            > h2
-                color: $black
-                // text-shadow: 0 0 30px $black
+            > h2,
+            > h3
+                color: $white
+                text-shadow: 0 0 30px $black
 
             > h2
                 font-weight: 900
-                font-size: 60px
+                font-size: 90px
+
+            > h3
+                font-weight: 900
+                font-size: 25px
 
             > h1
                 font-weight: 900
-                font-size: 120px
-                line-height: 80px
+                font-size: 190px
+                line-height: 120px
+
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h1.subtitle.is-1.has-text-centered
-                | O que mais
-                br
-                | dá pra fazer?
 </template>
 
 <script>
@@ -47,21 +47,24 @@
         props: [],
         data: () => ({
             info: {
-                id: 'possibilidades',
+                id: 'palm-springs',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },
-                coordinates: {
-                    latitude: -20.264693,
-                    longitude: -50.574931
-                },
-                scale: 500000,
                 camera: {
-                    tilt: 0,
-                    heading: 0
+                    position: {
+                        x: -12977859.07,
+                        y: 4016696.94,
+                        z: 348.61,
+                        spatialReference: {
+                            wkid: 102100
+                        }
+                    },
+                    heading: 316,
+                    tilt: 85
                 },
-                basemap: 'osm'
-                // layer: ['Cities Rendered Outline White']
+                basemap: 'satellite'
             }
         }),
         mounted: function () {

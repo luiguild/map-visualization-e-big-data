@@ -28,16 +28,18 @@
             > h1
                 font-weight: 900
                 font-size: 120px
-                line-height: 80px
+                line-height: 90px
 </style>
 
 <template lang="pug">
     #internal
         .box
             h1.subtitle.is-1.has-text-centered
-                | O que mais
+                | 3D é legal,
                 br
-                | dá pra fazer?
+                | e dá até
+                br
+                | pra apelar...
 </template>
 
 <script>
@@ -47,15 +49,15 @@
         props: [],
         data: () => ({
             info: {
-                id: 'possibilidades',
+                id: 'possibilidades-3d',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -20.264693,
-                    longitude: -50.574931
+                    latitude: -13.78,
+                    longitude: -52.17
                 },
-                scale: 500000,
+                scale: 25000000,
                 camera: {
                     tilt: 0,
                     heading: 0

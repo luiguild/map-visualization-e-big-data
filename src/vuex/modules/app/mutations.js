@@ -21,8 +21,8 @@ const changeMap = (slide, state) => {
     //     }
     // }
 
-    if (slide.coordinates !== undefined &&
-        slide.scale !== undefined &&
+    if (slide.coordinates !== undefined ||
+        slide.scale !== undefined ||
         slide.camera !== undefined) {
         arceasy.view.newPosition({
             coordinates: slide.coordinates,
@@ -63,9 +63,10 @@ const changeMap = (slide, state) => {
         })
     }
 
-    // if (slideId === 13) {
-    //     arceasy.utils.hideGraphicLayers()
-    // }
+    if (slide.id === 'possibilidades' ||
+        slide.id === 'webradar-3') {
+        arceasy.utils.hideGraphicLayers()
+    }
 }
 
 export default {

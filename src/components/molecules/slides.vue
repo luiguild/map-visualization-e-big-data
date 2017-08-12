@@ -40,7 +40,9 @@
     import slideMindBlown from '../atoms/slide-mind-blown'
     import slideAbout from '../atoms/slide-about'
     import slideStack from '../atoms/slide-stack'
-    import slideWebradar from '../atoms/slide-webradar'
+    import slideWebradar1 from '../atoms/slide-webradar-1'
+    import slideWebradar2 from '../atoms/slide-webradar-2'
+    import slideWebradar3 from '../atoms/slide-webradar-3'
     import slideSygicHongkong from '../atoms/slide-sygic-hongkong'
     import slideSp99 from '../atoms/slide-sp-99'
     import slideMapasSaoPoderosos from '../atoms/slide-mapas-sao-poderosos'
@@ -63,6 +65,9 @@
     import slideParqueDoPovo from '../atoms/slide-parque-do-povo'
     import slidePerguntas from '../atoms/slide-perguntas'
     import slideEncerramento from '../atoms/slide-encerramento'
+    import slideIss from '../atoms/slide-iss'
+    import slidePossibilidades3d from '../atoms/slide-possibilidades-3d'
+    import slidePalmSprings from '../atoms/slide-palm-springs'
 
     export default {
         props: [],
@@ -82,7 +87,9 @@
             slideMindBlown,
             slideAbout,
             slideStack,
-            slideWebradar,
+            slideWebradar1,
+            slideWebradar2,
+            slideWebradar3,
             slideSygicHongkong,
             slideSp99,
             slideMapasSaoPoderosos,
@@ -104,7 +111,10 @@
             slideStates3d,
             slideParqueDoPovo,
             slidePerguntas,
-            slideEncerramento
+            slideEncerramento,
+            slideIss,
+            slidePossibilidades3d,
+            slidePalmSprings
         },
         computed: {
             ...mapGetters([

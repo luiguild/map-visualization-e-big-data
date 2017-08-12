@@ -23,21 +23,19 @@
 
             > h2
                 font-weight: 900
-                font-size: 60px
+                font-size: 100px
 
             > h1
                 font-weight: 900
-                font-size: 120px
-                line-height: 80px
+                font-size: 190px
+                line-height: 120px
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.has-text-centered
-                | O que mais
-                br
-                | dá pra fazer?
+            h2.title.is-2.is-marginless.has-text-centered.npidescri Big Data e IoT...
+            h1.subtitle.is-3.is-marginless.npi ...que IoT?
 </template>
 
 <script>
@@ -47,21 +45,20 @@
         props: [],
         data: () => ({
             info: {
-                id: 'possibilidades',
+                id: 'webradar-3',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -20.264693,
-                    longitude: -50.574931
+                    latitude: -22.962179,
+                    longitude: -43.182069
                 },
-                scale: 500000,
+                scale: 20000,
                 camera: {
-                    tilt: 0,
-                    heading: 0
+                    tilt: 77,
+                    heading: 65
                 },
                 basemap: 'osm'
-                // layer: ['Cities Rendered Outline White']
             }
         }),
         mounted: function () {

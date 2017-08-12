@@ -17,9 +17,18 @@
             +flex(column, n, center, center)
 
             > h1,
-            > h2
+            > h2,
+            > h3
                 color: $white
                 text-shadow: 0 0 30px $black
+
+            > h2
+                font-weight: 900
+                font-size: 90px
+
+            > h3
+                font-weight: 900
+                font-size: 25px
 
             > h1
                 font-weight: 900
@@ -33,7 +42,7 @@
         .box
             h1.title.is-1.is-marginless.has-text-centered ESRI
             h2.subtitle.is-1.is-marginless ArcGIS
-            h2.subtitle.is-4.is-marginless developers.arcgis.com
+            h3.subtitle.is-4.is-marginless developers.arcgis.com
 </template>
 
 <script>

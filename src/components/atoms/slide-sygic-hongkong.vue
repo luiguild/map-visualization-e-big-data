@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'sygic-hongkong',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

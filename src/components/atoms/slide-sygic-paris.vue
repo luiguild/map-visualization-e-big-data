@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'sygic-paris',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

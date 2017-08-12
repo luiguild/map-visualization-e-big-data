@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'land-use',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

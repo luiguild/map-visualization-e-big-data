@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'rj-99',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

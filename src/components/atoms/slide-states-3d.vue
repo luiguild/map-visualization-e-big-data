@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'states-3d',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

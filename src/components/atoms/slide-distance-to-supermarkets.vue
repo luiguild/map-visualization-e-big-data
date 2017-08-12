@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'distance-to-supermarkets',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

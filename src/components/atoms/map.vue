@@ -128,10 +128,10 @@
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
     import * as arceasy from 'arceasy'
-    // import iss from '@/assets/modules/iss'
+    import iss from '@/assets/modules/iss'
     // import text from '@/assets/modules/text'
-    // import palmSprings from '@/assets/modules/palm-springs-eolic-station'
-    // import pointCloud from '@/assets/modules/point-cloud'
+    import palmSprings from '@/assets/modules/palm-springs-eolic-station'
+    import pointCloud from '@/assets/modules/point-cloud'
 
     export default {
         props: [],

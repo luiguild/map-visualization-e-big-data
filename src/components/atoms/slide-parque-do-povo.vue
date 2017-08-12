@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'parque-do-povo',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

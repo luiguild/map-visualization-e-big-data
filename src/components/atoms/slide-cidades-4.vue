@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'cidades-4',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

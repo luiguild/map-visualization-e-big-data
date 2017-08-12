@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'initial',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

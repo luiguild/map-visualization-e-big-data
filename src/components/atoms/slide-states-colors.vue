@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'states-colors',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

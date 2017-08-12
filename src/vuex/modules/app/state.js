@@ -1,7 +1,7 @@
 // import Vue from 'vue'
 
 export default {
-    visibility: true,
+    visibility: false,
     actual: 99,
     slide: {},
     slides: [

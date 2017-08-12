@@ -31,6 +31,7 @@
         data: () => ({
             info: {
                 id: 'sp-99',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },

@@ -87,6 +87,7 @@
 
                 .area
                     h1.title.is-1 Confirmação
+        h4.subtitle.is-5 Fonte: Análise Espacial - Anselin (1999)
 </template>
 
 <script>

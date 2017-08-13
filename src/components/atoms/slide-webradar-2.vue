@@ -34,8 +34,10 @@
         .box
             h1.title.is-1 WebRadar
             h1.subtitle.is-5 www.webradar.com
-            h2.subtitle.is-4.has-text-centered Fundada em 2008, a WebRadar é uma empresa de tecnologia especializada em Big Data Analytics para IoT.
-            h2.subtitle.is-4.is-marginless.has-text-centered  A WebRadar tem sua sede no Brasil, além de representantes de vendas na Europa, África e Ásia.
+            h2.subtitle.is-4.is-marginless.has-text-centered  Nossa sede é no Brasil e atuamos diretamente na Europa, África e Ásia.
+            h2.subtitle.is-4.is-marginless.has-text-centered
+                br
+                | Nosso stack de map-visualization é baseado em soluções ESRI ArcGIS, OpenStreetMap, HERE Maps, Google Maps e Leaflet.
 </template>
 
 <script>

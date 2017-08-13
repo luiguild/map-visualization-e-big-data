@@ -33,12 +33,12 @@
     #internal
         .box
             h1.title.is-1.has-text-centered Mapas são poderosos!
-            h2.subtitle.is-3.is-marginless ArcGIS
-            h2.subtitle.is-3.is-marginless OpenStreetMap
-            h2.subtitle.is-3.is-marginless Mapbox
-            h2.subtitle.is-3.is-marginless CartoDB
-            h2.subtitle.is-3.is-marginless HERE Maps
-            h2.subtitle.is-3.is-marginless Google Maps
+            h2.subtitle.is-3.is-marginless ArcGIS (1999)
+            h2.subtitle.is-3.is-marginless OpenStreetMap (2004)
+            h2.subtitle.is-3.is-marginless Mapbox (2010)
+            h2.subtitle.is-3.is-marginless CartoDB (2011)
+            h2.subtitle.is-3.is-marginless HERE Maps (2001)
+            h2.subtitle.is-3.is-marginless Google Maps (2005)
 </template>
 
 <script>

@@ -8,6 +8,21 @@
         border-radius: $pixel-proportion / 2
         +flex(row, n, center, center)
 
+        .column
+            margin: $pixel-proportion * 2
+            overflow: hidden
+            height: 180px
+
+            > .title
+                +flex(row, n, center, center)
+                height: 150px
+                font-size: 200px
+                color: $black-3
+            .paintbrush
+                height: 150px
+            .phothoshop
+                height: 155px
+
         > .box
             width: 100%
             height: 100%
@@ -49,6 +64,13 @@
 #internal
     .box
         h2.subtitle.is-1.is-marginless.has-text-centered Tipo assim...
+        .columns
+            .column
+                img.paintbrush(src="static/img/paintbrush.png")
+            .column
+                h1.title.is-1 X
+            .column
+                img.phothoshop(src="static/img/photoshop.png")
 </template>
 
 <script>

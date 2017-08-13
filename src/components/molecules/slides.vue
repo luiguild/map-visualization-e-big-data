@@ -68,6 +68,11 @@
     import slideIss from '../atoms/slide-iss'
     import slidePossibilidades3d from '../atoms/slide-possibilidades-3d'
     import slidePalmSprings from '../atoms/slide-palm-springs'
+    import slideGis1 from '../atoms/slide-gis-1'
+    import slideGis2 from '../atoms/slide-gis-2'
+    import slideGis3 from '../atoms/slide-gis-3'
+    import slideGis4 from '../atoms/slide-gis-4'
+    import slideGoogle from '../atoms/slide-google'
 
     export default {
         props: [],
@@ -114,7 +119,12 @@
             slideEncerramento,
             slideIss,
             slidePossibilidades3d,
-            slidePalmSprings
+            slidePalmSprings,
+            slideGis1,
+            slideGis2,
+            slideGis3,
+            slideGis4,
+            slideGoogle
         },
         computed: {
             ...mapGetters([

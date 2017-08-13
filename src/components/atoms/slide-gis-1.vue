@@ -11,40 +11,30 @@
         > .box
             width: 100%
             height: 100%
-            background-color: $transparent
+            background-color: transparentize($white, .1)
             box-shadow: none
             border: none
             +flex(column, n, center, center)
 
             > h1,
-            > h2,
-            > h3
-                color: $white
-                text-shadow: 0 0 30px $black
-
             > h2
-                font-weight: 400
-                font-size: 90px
-                line-height: 90px
-
-            > h3
-                font-weight: 900
-                font-size: 25px
+                // color: $white
+                // text-shadow: 0 0 30px $black
 
             > h1
                 font-weight: 900
-                font-size: 190px
-                line-height: 120px
-                letter-spacing: -10px
-
+                font-size: 150px
+                line-height: 90px
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h2.subtitle.is-1.is-marginless ESRI
-            h1.title.is-1.is-marginless.has-text-centered ArcGIS
-            h3.subtitle.is-4.is-marginless developers.arcgis.com
+#internal
+    .box
+        h2.subtitle.is-1.is-marginless.has-text-centered O que é
+        h1.title.is-1.is-marginless.has-text-centered GIS?
+        h5.subtitle.is-4.is-marginless.has-text-centered Sistema de Informação Geográfica
+        h2.subtitle.is-4.has-text-centered Um sistema constituído por um conjunto de programas computacionais, o qual integra dados, equipamentos e pessoas com objetivo de coletar, armazenar, recuperar, manipular, visualizar e analisar dados espacialmente referenciados a um sistema de coordenadas conhecido.
+        h4.subtitle.is-5 Fonte: Wikipédia, Fitz (2008)
 </template>
 
 <script>
@@ -54,20 +44,20 @@
         props: [],
         data: () => ({
             info: {
-                id: 'esri',
+                id: 'gis-1',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: 8.956709869641337,
-                    longitude: -79.56912269795791
+                    latitude: 51.498460195338005,
+                    longitude: -0.027955641775762194
                 },
-                scale: 10000000000,
+                scale: 34288,
                 camera: {
-                    tilt: 90,
+                    tilt: 0,
                     heading: 0
                 },
-                basemap: 'satellite'
+                basemap: 'osm'
             }
         }),
         mounted: function () {

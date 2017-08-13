@@ -8,44 +8,20 @@
         border-radius: $pixel-proportion / 2
         +flex(row, n, center, center)
 
-        .google
-            &::before
-                border: 1px dashed #000
-                // background-color: #ffffff
-                border-radius: $pixel-proportion * 2
-                min-width: $pixel-proportion * 42
-                min-height: $pixel-proportion * 20
-                margin-top: $pixel-proportion * -3
-                padding: $pixel-proportion / 2
-                padding-left: $pixel-proportion
-                content: 'Google Maps'
-                font-weight: 900
-                font-size: 20px
-                position: absolute
-                z-index: -1
-                opacity: 0.3
+        .column
+            margin: $pixel-proportion * 2
+            overflow: hidden
+            height: 180px
 
-        .esri
-            min-width: $pixel-proportion * 88
-            min-height: $pixel-proportion * 38
-            margin-top: $pixel-proportion * 8
-            // margin-top: $pixel-proportion * 2
-            margin-bottom: $pixel-proportion * -1.5
-
-            &::before
-                border: 1px solid #000
-                // background-color: #ffffff
-                border-radius: $pixel-proportion * 2
-                min-width: $pixel-proportion * 88
-                min-height: $pixel-proportion * 44.5
-                margin-top: $pixel-proportion * -7.5
-                padding: $pixel-proportion / 2
-                padding-left: $pixel-proportion
-                content: 'ESRI ArcGIS'
-                font-weight: 900
-                font-size: 25px
-                position: absolute
-                // z-index: -1
+            > .title
+                +flex(row, n, center, center)
+                height: 150px
+                font-size: 200px
+                color: $black-3
+            .paintbrush
+                height: 150px
+            .phothoshop
+                height: 155px
 
         > .box
             width: 100%
@@ -87,23 +63,14 @@
 <template lang="pug">
 #internal
     .box
-        h2.subtitle.is-1.is-marginless.has-text-centered O que é
-        h1.title.is-1.is-marginless.has-text-centered GIS?
-        h5.subtitle.is-4.is-marginless.has-text-centered Sistema de Informação Geográfica
-        .columns.is-paddingless.esri
-            .column.is-marginless.is-paddingless
-                .area.google
-                    h1.title.is-1 Seleção
-
-                .area
-                    h1.title.is-1 Manipulação
-            .column.is-marginless.is-paddingless
-                .area
-                    h1.title.is-1 Exploração
-
-                .area
-                    h1.title.is-1 Confirmação
-        h4.subtitle.is-5 Fonte: Análise Espacial - Anselin (1999)
+        h2.subtitle.is-1.is-marginless.has-text-centered Tipo assim...
+        .columns
+            .column
+                img.paintbrush(src="static/img/paintbrush.png")
+            .column
+                h1.title.is-1 X
+            .column
+                img.phothoshop(src="static/img/photoshop.png")
 </template>
 
 <script>
@@ -113,7 +80,7 @@
         props: [],
         data: () => ({
             info: {
-                id: 'gis-4',
+                id: 'gis-google',
                 light: {
                     cameraTracking: true
                 },

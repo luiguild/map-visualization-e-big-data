@@ -27,8 +27,8 @@
         .esri
             min-width: $pixel-proportion * 88
             min-height: $pixel-proportion * 38
-            margin-top: $pixel-proportion * 3
-
+            margin-top: $pixel-proportion * 2
+            margin-bottom: $pixel-proportion * -1.5
 
         > .box
             width: 100%

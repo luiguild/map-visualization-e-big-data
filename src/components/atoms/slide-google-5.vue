@@ -8,32 +8,22 @@
         border-radius: $pixel-proportion / 2
         +flex(row, n, center, center)
 
-        .meio
-            overflow: hidden
-            position: relative
-            left: $pixel-proportion * -.2
-
         .column
             margin: $pixel-proportion * 2
-            height: 180px
+            overflow: hidden
+            height: 210px
+            width: 210px
 
             > .title
                 +flex(row, n, center, center)
-                height: 150px
-                font-size: 200px
+                height: 200px
+                font-size: 120px
                 color: $black-3
-            .paintbrush
-                position: relative
-                top: $pixel-proportion * 2
-                font-size: 60px
-                height: 150px
-                +flex(row, n, center, center)
+
+            .paintbrush,
             .phothoshop
-                position: relative
-                top: $pixel-proportion * 2
-                font-size: 60px
-                height: 155px
-                +flex(row, n, center, center)
+                height: 200px
+                max-width: 200px !important
 
         > .box
             width: 100%
@@ -77,12 +67,12 @@
     .box
         h2.subtitle.is-1.is-marginless.has-text-centered Tipo assim...
         .columns
-            .column.is-marginless.is-paddingless
-                h2.is-marginless.is-paddingless.paintbrush.subtitle.is-1 Biscoito
-            .column.meio
+            .column
+                img.paintbrush(src="static/img/ie6.png")
+            .column
                 h1.title.is-1 X
-            .column.is-marginless.is-paddingless
-                h2.is-marginless.is-paddingless.phothoshop.subtitle.is-1 Bolacha
+            .column
+                img.phothoshop(src="static/img/firefox.png")
 </template>
 
 <script>

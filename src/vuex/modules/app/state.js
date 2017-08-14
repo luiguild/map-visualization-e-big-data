@@ -21,6 +21,8 @@ export default {
         'gis-3',
         'gis-4',
         'google-1',
+        'google-5',
+        'google-6',
         'google-2',
         'google-3',
         'google-4',

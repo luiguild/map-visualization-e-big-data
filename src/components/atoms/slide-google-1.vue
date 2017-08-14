@@ -11,17 +11,19 @@
         .column
             margin: $pixel-proportion * 2
             overflow: hidden
-            height: 180px
+            height: 210px
+            width: 210px
 
             > .title
                 +flex(row, n, center, center)
-                height: 150px
-                font-size: 200px
+                height: 200px
+                font-size: 120px
                 color: $black-3
-            .paintbrush
-                height: 150px
+
+            .paintbrush,
             .phothoshop
-                height: 155px
+                height: 200px
+                max-width: 200px !important
 
         > .box
             width: 100%

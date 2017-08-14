@@ -76,6 +76,8 @@
     import slideGoogle2 from '../atoms/slide-google-2'
     import slideGoogle3 from '../atoms/slide-google-3'
     import slideGoogle4 from '../atoms/slide-google-4'
+    import slideGoogle5 from '../atoms/slide-google-5'
+    import slideGoogle6 from '../atoms/slide-google-6'
 
     export default {
         props: [],
@@ -130,7 +132,9 @@
             slideGoogle1,
             slideGoogle2,
             slideGoogle3,
-            slideGoogle4
+            slideGoogle4,
+            slideGoogle5,
+            slideGoogle6
         },
         computed: {
             ...mapGetters([

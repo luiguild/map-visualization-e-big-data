@@ -51,16 +51,16 @@
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -20.264693,
-                    longitude: -50.574931
+                    latitude: 25.12042267976343,
+                    longitude: 55.13135616354976
                 },
-                scale: 800000,
+                scale: 10792,
                 camera: {
-                    tilt: 45,
-                    heading: 320
+                    tilt: 0,
+                    heading: 340
                 },
-                basemap: 'hybrid',
-                layer: ['Cities Rendered 3D']
+                basemap: 'satellite',
+                layer: []
             }
         }),
         mounted: function () {

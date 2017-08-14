@@ -18,28 +18,27 @@
 
             > h1,
             > h2
-                color: $black
-                // text-shadow: 0 0 30px $black
+                color: $white
+                text-shadow: 0 0 30px $black
 
             > h2
-                font-weight: 900
+                font-weight: 400
                 font-size: 60px
 
             > h1
                 font-weight: 900
-                font-size: 120px
-                line-height: 90px
+                font-size: 100px
+                line-height: 50px
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.has-text-centered
-                | 3D é legal,
+            h2.subtitle.is-1.has-text-centered.is-marginless
+                | Se tem 3D...
                 br
-                | e dá até
-                br
-                | pra apelar...
+            h1.subtitle.is-1.has-text-centered.is-marginless
+                | Tem three.js!
 </template>
 
 <script>
@@ -57,12 +56,12 @@
                     latitude: -13.78,
                     longitude: -52.17
                 },
-                scale: 25000000,
+                scale: 250000000,
                 camera: {
                     tilt: 0,
                     heading: 0
                 },
-                basemap: 'osm'
+                basemap: 'satellite'
                 // layer: ['Cities Rendered Outline White']
             }
         }),

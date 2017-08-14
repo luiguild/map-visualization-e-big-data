@@ -20,7 +20,13 @@
                 font-size: 120px
                 color: $black-3
 
-            .paintbrush,
+            .paintbrush
+                height: 160px
+                max-width: 160px !important
+                position: relative
+                top: $pixel-proportion * 2
+                left: $pixel-proportion * 2
+
             .phothoshop
                 height: 200px
                 max-width: 200px !important

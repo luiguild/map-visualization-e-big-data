@@ -14,15 +14,20 @@
             background-color: transparentize($white, .3)
             +flex(column, n, center, center)
 
+            .emoji
+                font-size: 80px
+
             h1
                 font-weight: 900
             .title
                 font-size: 60px
+                margin-top: 0
 </style>
 
 <template lang="pug">
     #internal
         .box
+            .emoji 😌
             h1.title.is-1 Luigui Delyer
             h1.subtitle.is-5 (Sim esse é o meu nome.)
             h2.subtitle.is-4.is-marginless.has-text-centered Front-End @ WebRadar

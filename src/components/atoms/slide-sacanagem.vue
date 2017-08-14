@@ -1,61 +1,13 @@
 <style scoped lang="sass">
     @import ../../sass/imports/_extend
 
-    #internal
-        position: relative
-        height: 80%
-        width: 75%
-        border-radius: $pixel-proportion / 2
-        +flex(row, n, center, center)
-
-        > .box
-            width: 100%
-            height: 100%
-            background-color: transparentize($white, .1)
-            box-shadow: none
-            border: none
-            +flex(column, n, center, center)
-
-            > h1,
-            > h2
-                // color: $white
-                // text-shadow: 0 0 30px $black
-
-            > h1
-                font-weight: 900
-                font-size: 150px
-                line-height: 90px
-
-            .area
-                +flex(row, n, center, center)
-                position: relative
-                z-index: 9
-                // border: 1px solid #000
-                border-radius: $pixel-proportion
-                padding: $pixel-proportion * 4
-                margin: $pixel-proportion * 2
-                margin-bottom: $pixel-proportion * 3
-                // margin-top: $pixel-proportion * 3
-                background-color: $color1
-                min-width: $pixel-proportion * 40
-                min-height: $pixel-proportion * 15
-
-                > h1
-                    margin: 0
-                    color: $white
+    .sacanagem
+        margin-top: $pixel-proportion * 10
+        font-size: 300px
 </style>
 
 <template lang="pug">
-#internal
-    .box
-        h2.subtitle.is-1.is-marginless.has-text-centered Tipo assim...
-        .columns
-            .column
-                img.paintbrush(src="static/img/edge.png")
-            .column
-                h1.title.is-1 X
-            .column
-                img.phothoshop(src="static/img/firefox.png")
+.sacanagem 😏
 </template>
 
 <script>

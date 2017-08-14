@@ -26,6 +26,7 @@ export default {
         'google-2',
         'google-3',
         'google-4',
+        'sacanagem',
         'ma-utilizacao',
         'possibilidades',
         'cidades-1',

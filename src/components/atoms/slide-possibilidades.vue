@@ -16,6 +16,14 @@
             border: none
             +flex(column, n, center, center)
 
+            .emoji
+                font-size: 150px
+                margin-top: $pixel-proportion * -5
+                margin-bottom: $pixel-proportion * -10
+
+            .title
+                margin-top: 0
+
             > h1,
             > h2
                 color: $black
@@ -34,7 +42,8 @@
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.has-text-centered
+            .emoji 👀
+            h1.title.is-1.has-text-centered
                 | O que mais
                 br
                 | dá pra fazer?

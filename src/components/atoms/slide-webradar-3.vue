@@ -16,6 +16,14 @@
             border: none
             +flex(column, n, center, center)
 
+            .emoji
+                font-size: 150px
+                margin-top: $pixel-proportion * -12
+                margin-bottom: $pixel-proportion * -10
+
+            .title
+                margin-top: 0
+
             > h1,
             > h2
                 color: $black
@@ -34,6 +42,7 @@
 <template lang="pug">
     #internal
         .box
+            .emoji 🤔
             h2.title.is-2.is-marginless.has-text-centered.npidescri Big Data e IoT...
             h1.subtitle.is-3.is-marginless.npi ...que IoT?
 </template>

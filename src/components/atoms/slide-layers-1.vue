@@ -15,28 +15,30 @@
             background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, center, center)
+            +flex(column, n, center, flex-start)
 
             > h1,
-            > h2
+            > h2,
+            > h3
                 color: $white
-                text-shadow: 0 0 30px $black
+                text-shadow: 0 0 20px $black, 0 0 50px $black
 
             > h2
-                font-size: 70px
+                font-size: 80px
                 line-height: 40px
 
             > h1
                 font-weight: 900
-                font-size: 240px
-                line-height: 100px
+                font-size: 190px
+                line-height: 140px
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h2.subtitle.is-3.is-marginless Como fazemos isso?
-            h1.subtitle.is-1.is-marginless.has-text-centered Layers!
+            h3.subtitle.is-3.is-marginless ESRI ArcGIS
+            h1.subtitle.is-1.is-marginless 25 tipos
+            h2.subtitle.is-1.is-marginless de layers disponíveis
 </template>
 
 <script>
@@ -46,18 +48,18 @@
         props: [],
         data: () => ({
             info: {
-                id: 'como-fazemos-isso',
+                id: 'layers-1',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: 25.12042267976343,
-                    longitude: 55.13135616354976
+                    latitude: -31.543327662453358,
+                    longitude: 159.0686284905842
                 },
-                scale: 10792,
+                scale: 13497.607197748148,
                 camera: {
                     tilt: 0,
-                    heading: 340
+                    heading: 30
                 },
                 basemap: 'satellite',
                 layer: []

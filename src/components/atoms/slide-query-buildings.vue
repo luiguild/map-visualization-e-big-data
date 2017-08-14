@@ -11,32 +11,33 @@
         > .box
             width: 100%
             height: 100%
-            // background-color: transparentize($white, .3)
             background-color: $transparent
             box-shadow: none
             border: none
             +flex(column, n, center, center)
 
             > h1,
-            > h2
+            > h2,
+            > h3
                 color: $white
                 text-shadow: 0 0 30px $black
 
             > h2
-                font-size: 70px
-                line-height: 40px
+                font-weight: 900
+                font-size: 90px
+
+            > h3
+                font-weight: 900
+                font-size: 25px
 
             > h1
                 font-weight: 900
-                font-size: 240px
-                line-height: 100px
+                font-size: 190px
+                line-height: 120px
+
 </style>
 
 <template lang="pug">
-    #internal
-        .box
-            h2.subtitle.is-3.is-marginless Como fazemos isso?
-            h1.subtitle.is-1.is-marginless.has-text-centered Layers!
 </template>
 
 <script>
@@ -46,21 +47,24 @@
         props: [],
         data: () => ({
             info: {
-                id: 'como-fazemos-isso',
+                id: 'palm-springs',
+                presentation: false,
                 light: {
                     cameraTracking: true
                 },
-                coordinates: {
-                    latitude: 25.12042267976343,
-                    longitude: 55.13135616354976
-                },
-                scale: 10792,
                 camera: {
-                    tilt: 0,
-                    heading: 340
+                    position: {
+                        x: -12977859.07,
+                        y: 4016696.94,
+                        z: 348.61,
+                        spatialReference: {
+                            wkid: 102100
+                        }
+                    },
+                    heading: 316,
+                    tilt: 85
                 },
-                basemap: 'satellite',
-                layer: []
+                basemap: 'satellite'
             }
         }),
         mounted: function () {

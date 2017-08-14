@@ -79,6 +79,14 @@
     import slideGoogle5 from '../atoms/slide-google-5'
     import slideGoogle6 from '../atoms/slide-google-6'
     import slideSacanagem from '../atoms/slide-sacanagem'
+    import slideLayers1 from '../atoms/slide-layers-1'
+    import slidePoint from '../atoms/slide-point'
+    import slidePointsPhiladelphia1 from '../atoms/slide-points-philadelphia-1'
+    import slidePointsPhiladelphia2 from '../atoms/slide-points-philadelphia-2'
+    import slideScene from '../atoms/slide-scene'
+    import slideQueryBuildings from '../atoms/slide-query-buildings'
+    import slideGraphic from '../atoms/slide-graphic'
+    import slideSubmarineCable from '../atoms/slide-submarine-cable'
 
     export default {
         props: [],
@@ -136,7 +144,15 @@
             slideGoogle4,
             slideGoogle5,
             slideGoogle6,
-            slideSacanagem
+            slideSacanagem,
+            slideLayers1,
+            slidePoint,
+            slidePointsPhiladelphia1,
+            slidePointsPhiladelphia2,
+            slideScene,
+            slideQueryBuildings,
+            slideGraphic,
+            slideSubmarineCable
         },
         computed: {
             ...mapGetters([

@@ -42,27 +42,28 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
+    import changeRenderer from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
         data: () => ({
             info: {
-                id: 'palm-springs',
+                id: 'points-philadelphia-2',
                 presentation: false,
                 light: {
                     cameraTracking: true
                 },
                 camera: {
                     position: {
-                        x: -12977859.07,
-                        y: 4016696.94,
-                        z: 348.61,
+                        x: -8249335,
+                        y: 4832005,
+                        z: 50.7,
                         spatialReference: {
-                            wkid: 102100
+                            wkid: 3857
                         }
                     },
-                    heading: 316,
-                    tilt: 85
+                    heading: 210,
+                    tilt: 78
                 },
                 basemap: 'satellite'
             }
@@ -86,6 +87,7 @@
                 const slide = this.slides[this.actual]
                 if (slide === this.info.id) {
                     this.actualSlide(this.info)
+                    changeRenderer(2)
                 }
             }
         }

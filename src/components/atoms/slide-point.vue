@@ -14,30 +14,51 @@
             background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, center, center)
+            +flex(column, n, center, flex-start)
+
+            > h1,
+            > h4
+                font-weight: 900
+
+            > h2
+                font-weight: 600
+                margin-top: $pixel-proportion
 
             > h1,
             > h2,
-            > h3
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h2
-                font-weight: 900
-                font-size: 90px
-
-            > h3
-                font-weight: 900
-                font-size: 25px
+            > h4
+                color: $black
+                text-shadow: 0 0 30px $white, 0 0 30px $white
 
             > h1
-                font-weight: 900
-                font-size: 190px
-                line-height: 120px
+                font-size: 140px
+                line-height: 90px
+                // text-shadow: 0 0 30px $black
 
 </style>
 
 <template lang="pug">
+    #internal
+        .box
+            h1.subtitle.is-1.is-marginless
+                | Point
+                br
+                | Cloud
+            h2.subtitle.is-4
+                | É um conjunto de dados do tipo "lidar data"
+                br
+                | organizados espacialmente após um processo específico
+                br
+                | de captura feito por aviões e satélites,
+                br
+                | que consiste em grandes coleções
+                br
+                | de pontos 3D que é capaz de descrever as elevações do solo,
+                br
+                | os prédios, o desfiladeiro da floresta, as sobrepassagens da estrada
+                br
+                | e qualquer outra coisa captada no mundo real.
+            h4.subtitle.is-5 Fonte: ESRI
 </template>
 
 <script>
@@ -47,24 +68,21 @@
         props: [],
         data: () => ({
             info: {
-                id: 'palm-springs',
-                presentation: false,
+                id: 'point',
                 light: {
                     cameraTracking: true
                 },
-                camera: {
-                    position: {
-                        x: -12977859.07,
-                        y: 4016696.94,
-                        z: 348.61,
-                        spatialReference: {
-                            wkid: 102100
-                        }
-                    },
-                    heading: 316,
-                    tilt: 85
+                coordinates: {
+                    latitude: 44.52461513861035,
+                    longitude: -110.83637192874254
                 },
-                basemap: 'satellite'
+                scale: 3183.746753788381,
+                camera: {
+                    tilt: 0,
+                    heading: 220
+                },
+                basemap: 'satellite',
+                layer: []
             }
         }),
         mounted: function () {

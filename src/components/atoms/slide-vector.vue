@@ -11,29 +11,49 @@
         > .box
             width: 100%
             height: 100%
-            background-color: transparentize($white, .1)
+            background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, center, center)
+            +flex(column, n, flex-end, flex-end)
 
             > h1,
+            > h4
+                font-weight: 900
+
             > h2
-                // color: $white
-                // text-shadow: 0 0 30px $black
+                font-weight: 600
+
+            > h1,
+            > h2,
+            > h4
+                color: $black
+                text-align: right
+                // text-shadow: 0 0 30px $black, 0 0 50px $black
 
             > h1
-                font-weight: 900
-                font-size: 70px
+                font-size: 140px
                 line-height: 50px
+                // text-shadow: 0 0 30px $black
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.is-marginless.has-text-centered Vector Layer
-            h2.subtitle.is-4.has-text-centered Desenho vetorial é o uso de primitivas geométricas como pontos, linhas, curvas e formas ou polígonos - todos os quais são baseados em expressões matemáticas - para representar imagens em computação gráfica.
-            h2.subtitle.is-4.has-text-centered Os desenhos vetoriais são baseados em vetores (também chamados de caminhos), que conduzem através de locais chamados pontos de controle ou nós. Cada um desses pontos possui uma posição definida nos eixos x e y do plano de trabalho e determinam a direção do caminho.
-            h2.subtitle.is-4.has-text-centered Além disso, a cada caminho pode ser atribuído uma cor de traço, forma, espessura e preenchimento.
+            h1.subtitle.is-1.is-marginless Vector
+            h2.subtitle.is-4
+                | Desenho vetorial é o uso
+                br
+                | de primitivas geométricas como pontos,
+                br
+                | linhas, curvas e formas ou polígonos
+                br
+                | - todos os quais são baseados
+                br
+                | em expressões matemáticas -
+                br
+                | para representar imagens
+                br
+                | em computação gráfica.
             h4.subtitle.is-5 Fonte: Wikipédia
 </template>
 
@@ -49,16 +69,16 @@
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -18.407171901856543,
-                    longitude: -51.98852640010841
+                    latitude: 26.358224064237042,
+                    longitude: 127.7831652745187
                 },
-                scale: 25766491,
+                scale: 934.4757970933606,
                 camera: {
-                    tilt: 10,
-                    heading: 0
+                    tilt: 0,
+                    heading: 200
                 },
-                basemap: 'streets',
-                layer: ['States Colors']
+                basemap: 'satellite',
+                layer: []
             }
         }),
         mounted: function () {

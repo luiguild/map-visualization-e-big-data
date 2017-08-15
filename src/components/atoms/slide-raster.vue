@@ -64,7 +64,7 @@
                     heading: 0
                 },
                 basemap: 'satellite',
-                layer: ['99 - WCDMA RSSI']
+                layer: []
             }
         }),
         mounted: function () {

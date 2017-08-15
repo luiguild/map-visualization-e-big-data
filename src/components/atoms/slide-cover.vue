@@ -11,6 +11,7 @@
             font-size: 120px
             font-weight: 900
             line-height: 90px
+            letter-spacing: -4px
 
         > h2
             font-size: 40px
@@ -19,7 +20,7 @@
 
         > h1,
         > h2
-            text-shadow: 0 0 30px $black
+            text-shadow: 0 0 30px $black, 0 0 50px $black
             color: $white
             // +upper-case
 </style>
@@ -29,9 +30,9 @@
         h1.title.is-1.has-text-centered
             | Map
             br
-            | visualization
+            | visualization,
             br
-            | e Big Data
+            | IoT e Big Data
         h2.subtitle.is-2.has-text-centered
             | Transformando informação em valor,
             br

@@ -11,28 +11,35 @@
         > .box
             width: 100%
             height: 100%
-            background-color: transparentize($white, .1)
+            background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, center, center)
+            +flex(column, n, center, flex-start)
 
             > h1,
+            > h4
+                font-weight: 900
+
             > h2
-                // color: $white
-                // text-shadow: 0 0 30px $black
+                font-weight: 600
+
+            > h1,
+            > h2,
+            > h4
+                color: $white
+                text-shadow: 0 0 30px $black, 0 0 50px $black
 
             > h1
-                font-weight: 900
-                font-size: 70px
+                font-size: 140px
                 line-height: 50px
+                text-shadow: 0 0 30px $black
 </style>
 
 <template lang="pug">
     #internal
         .box
-            h1.subtitle.is-1.is-marginless.has-text-centered Raster Layer
-            h2.subtitle.is-4.has-text-centered Dados raster (ou bitmap, que significa mapa de bits em inglês) são imagens que contêm a descrição de cada pixel, em oposição aos gráficos vectoriais.
-            h2.subtitle.is-4.has-text-centered O tratamento de imagens deste tipo requer ferramentas especializadas, geralmente utilizadas em fotografia, pois envolvem cálculos muito complexos, como interpolação, álgebra matricial, etc.
+            h1.subtitle.is-1.is-marginless Raster
+            h2.subtitle.is-3 Dados raster (ou bitmap, que significa mapa de bits em inglês) são imagens que contêm a descrição de cada pixel, em oposição aos gráficos vectoriais.
             h4.subtitle.is-5 Fonte: Wikipédia
 </template>
 
@@ -48,12 +55,12 @@
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -22.96828010586395,
-                    longitude: -43.18386017139429
+                    latitude: 32.15374182439417,
+                    longitude: -110.83275709143412
                 },
-                scale: 7245,
+                scale: 9413.008210296684,
                 camera: {
-                    tilt: 70,
+                    tilt: 0,
                     heading: 0
                 },
                 basemap: 'satellite',

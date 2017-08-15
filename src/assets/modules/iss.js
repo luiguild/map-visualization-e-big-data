@@ -23,7 +23,7 @@ const run = () => {
 
         iss: null,                                                          // ISS model
         issScale: 40000,                                                    // scale for the iss model
-        issMaterial: new THREE.MeshLambertMaterial({color: 0xe03110}),    // material for the ISS model
+        issMaterial: new THREE.MeshLambertMaterial({color: 0xffffff}),    // material for the ISS model
 
         cameraPositionInitialized: true, // we focus the view on the ISS once we receive our first data point
         positionHistory: [],              // all ISS positions received so far

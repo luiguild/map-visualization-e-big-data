@@ -2,7 +2,7 @@ import * as arceasy from 'arceasy'
 
 const run = () => {
     const map = arceasy.obj.map
-    const view = arceasy.obj.view
+    // const view = arceasy.obj.view
     const SceneLayer = arceasy.obj.constructors.layer.SceneLayer
     const ColorSlider = arceasy.obj.constructors.utils.ColorSlider
     const colorRendererCreator = arceasy.obj.constructors.renderer.colorRendererCreator
@@ -102,7 +102,7 @@ const run = () => {
         // and add it to the view's UI
 
         var colorSlider = new ColorSlider(sliderParams)
-        view.ui.add('containerDiv', 'bottom-left')
+        // view.ui.add('containerDiv', 'bottom-left')
 
         // when the user slides the handle(s), update the renderer
         // with the updated color visual variable object

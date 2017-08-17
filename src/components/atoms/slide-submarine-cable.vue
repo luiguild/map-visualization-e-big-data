@@ -42,6 +42,7 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
+    import { submarineCables } from '@/assets/modules/submarine-cables'
 
     export default {
         props: [],
@@ -86,6 +87,7 @@
                 const slide = this.slides[this.actual]
                 if (slide === this.info.id) {
                     this.actualSlide(this.info)
+                    submarineCables()
                 }
             }
         }

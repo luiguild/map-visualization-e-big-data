@@ -129,8 +129,6 @@
     import { mapState, mapGetters, mapActions } from 'vuex'
     import * as arceasy from 'arceasy'
     import iss from '@/assets/modules/iss'
-    // import text from '@/assets/modules/text'
-    import palmSprings from '@/assets/modules/palm-springs-eolic-station'
 
     export default {
         props: [],
@@ -189,7 +187,6 @@
                 .then(() => {
                     arceasy.layers.add(allLayers.layers)
                     iss()
-                    palmSprings()
                 })
 
                 // const hsBeta = allLayers.layers.map((elm, indx, arr) => {

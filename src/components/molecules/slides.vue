@@ -9,7 +9,7 @@
         height: 100%
         width: 100%
         +transition(.2s)
-        +dont_select
+        // +dont_select
 
         > .body
             height: 100%
@@ -185,7 +185,7 @@
             actual: function (change) {
                 const slide = this.slides[change]
 
-                logger.log(`Actual slide: ${slide}`)
+                logger.log(`Actual slide: ${change} - ${slide}`)
 
                 if (change >= 0) {
                     this.component = `slide-${slide}`

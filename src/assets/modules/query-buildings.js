@@ -1,39 +1,14 @@
-require([
-    'esri/Map',
-    'esri/views/SceneView',
-    'esri/layers/SceneLayer',
-    'esri/renderers/smartMapping/creators/color',
-    'esri/widgets/ColorSlider',
-    'esri/core/lang',
-    'dojo/domReady!'
-], function (
-    Map, SceneView, SceneLayer, colorRendererCreator, ColorSlider, lang
-) {
-    // Create a map and add it to a SceneView
+import * as arceasy from 'arceasy'
 
-    var map = new Map({
-        basemap: 'gray'
-    })
-
-    var view = new SceneView({
-        container: 'viewDiv',
-        map: map,
-        camera: {
-            heading: 24,
-            tilt: 77,
-            position: {
-                x: -8240208,
-                y: 4965848,
-                z: 960,
-                spatialReference: {
-                    wkid: 3857
-                }
-            }
-        }
-    })
+const run = () => {
+    const map = arceasy.obj.map
+    const view = arceasy.obj.view
+    const SceneLayer = arceasy.obj.constructors.layer.SceneLayer
+    const ColorSlider = arceasy.obj.constructors.utils.ColorSlider
+    const colorRendererCreator = arceasy.obj.constructors.renderer.colorRendererCreator
+    const lang = arceasy.obj.constructors.utils.lang
 
     // Create SceneLayer instance with popupTemplate
-
     var layer = new SceneLayer({
         url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/NYC/SceneServer/layers/0',
         outFields: ['CNSTRCT_YR', 'NAME', 'HEIGHTROOF', 'NUM_FLOORS'],
@@ -141,4 +116,10 @@ require([
     .otherwise(function (err) {
         console.log('there was an error: ', err)
     })
-})
+}
+
+export const queryBuildings = () => {
+    if (arceasy.obj.view !== '' && arceasy.obj.view !== undefined) {
+        run()
+    }
+}

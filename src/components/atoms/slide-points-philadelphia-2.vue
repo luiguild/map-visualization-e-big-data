@@ -42,7 +42,7 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
-    import changeRenderer from '@/assets/modules/point-cloud'
+    import { pointCloud } from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
@@ -65,7 +65,7 @@
                     heading: 210,
                     tilt: 78
                 },
-                basemap: 'satellite'
+                basemap: 'dark-gray'
             }
         }),
         mounted: function () {
@@ -87,7 +87,7 @@
                 const slide = this.slides[this.actual]
                 if (slide === this.info.id) {
                     this.actualSlide(this.info)
-                    changeRenderer(2)
+                    pointCloud(2)
                 }
             }
         }

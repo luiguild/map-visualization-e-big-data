@@ -42,7 +42,7 @@
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
-    import pointCloud from '@/assets/modules/point-cloud'
+    import { pointCloud } from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
@@ -65,7 +65,7 @@
                     heading: 210,
                     tilt: 78
                 },
-                basemap: 'satellite'
+                basemap: 'dark-gray'
             }
         }),
         mounted: function () {

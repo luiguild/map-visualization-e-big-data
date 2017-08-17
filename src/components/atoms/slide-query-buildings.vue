@@ -35,36 +35,48 @@
                 font-size: 190px
                 line-height: 120px
 
+
+    #containerDiv
+        background-color: white
+        padding: 3px
+        text-align: center
+
+    #title
+        font-size: 14pt
 </style>
 
-<template lang="pug">
+<template>
+    <div id="containerDiv"><span id="title">Construction Year</span>
+        <div id="slider"></div>
+    </div>
 </template>
 
 <script>
     import { mapState, mapGetters, mapActions } from 'vuex'
+    import { queryBuildings } from '@/assets/modules/query-buildings'
 
     export default {
         props: [],
         data: () => ({
             info: {
-                id: 'palm-springs',
-                presentation: false,
+                id: 'query-buildings',
+                // presentation: false,
                 light: {
                     cameraTracking: true
                 },
                 camera: {
                     position: {
-                        x: -12977859.07,
-                        y: 4016696.94,
-                        z: 348.61,
+                        x: -8240208,
+                        y: 4965848,
+                        z: 960,
                         spatialReference: {
-                            wkid: 102100
+                            wkid: 3857
                         }
                     },
-                    heading: 316,
-                    tilt: 85
+                    heading: 24,
+                    tilt: 77
                 },
-                basemap: 'satellite'
+                basemap: 'dark-gray'
             }
         }),
         mounted: function () {
@@ -86,6 +98,7 @@
                 const slide = this.slides[this.actual]
                 if (slide === this.info.id) {
                     this.actualSlide(this.info)
+                    queryBuildings()
                 }
             }
         }

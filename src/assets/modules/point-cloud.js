@@ -112,19 +112,21 @@ const renderers = [
     }
 ]
 
-const run = () => {
+const run = renderer => {
     const map = arceasy.obj.map
     const PointCloudLayer = arceasy.obj.constructors.layer.PointCloudLayer
 
     // Create Point Cloud Layer
     var pcLayer = new PointCloudLayer({
         url: 'https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer',
-        id: 'PointCloud',
-        raw: ''
+        raw: {
+            id: 'PointCloud'
+        },
+        outOfRange: false
     })
 
     // Assign the renderer to the point cloud layers
-    pcLayer.renderer = makeRenderer(1)
+    pcLayer.renderer = makeRenderer(renderer)
     map.add(pcLayer)
 }
 
@@ -154,15 +156,8 @@ const makeRenderer = renderer => {
     return arrConstructors[parseInt(renderer)]
 }
 
-const pointCloud = () => {
+export const pointCloud = renderer => {
     if (arceasy.obj.view !== '' && arceasy.obj.view !== undefined) {
-        run()
+        run(renderer)
     }
 }
-
-export const changeRenderer = renderer => {
-    const layer = arceasy.layers.find('PointCloud')
-    layer.renderer = renderer !== undefined ? makeRenderer(renderer) : makeRenderer(0)
-}
-
-export default pointCloud

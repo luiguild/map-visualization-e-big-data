@@ -142,7 +142,7 @@
                     logger.log(`Hiding slides...`)
                     this.minimize(false)
                 } else {
-                    logger.log(`Shoing slides...`)
+                    logger.log(`Showing slides...`)
                     this.minimize(true)
                 }
             }

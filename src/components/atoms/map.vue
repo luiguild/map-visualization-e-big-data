@@ -131,7 +131,6 @@
     import iss from '@/assets/modules/iss'
     // import text from '@/assets/modules/text'
     import palmSprings from '@/assets/modules/palm-springs-eolic-station'
-    import pointCloud from '@/assets/modules/point-cloud'
 
     export default {
         props: [],
@@ -191,7 +190,6 @@
                     arceasy.layers.add(allLayers.layers)
                     iss()
                     palmSprings()
-                    pointCloud()
                 })
 
                 // const hsBeta = allLayers.layers.map((elm, indx, arr) => {

@@ -124,32 +124,34 @@ const run = () => {
     })
 
     // Assign the renderer to the point cloud layers
-    console.log('makeRenderer', makeRenderer(0))
-    // pcLayer.renderer = makeRenderer(0)
+    pcLayer.renderer = makeRenderer(1)
     map.add(pcLayer)
 }
 
 const makeRenderer = renderer => {
-    renderer = parseInt(renderer)
-    console.log('makeRenderer', renderer)
     const PointCloudUniqueValueRenderer = arceasy.obj.constructors.renderer.PointCloudUniqueValueRenderer
     const PointCloudRGBRenderer = arceasy.obj.constructors.renderer.PointCloudRGBRenderer
     const PointCloudStretchRenderer = arceasy.obj.constructors.renderer.PointCloudStretchRenderer
     const PointCloudClassBreaksRenderer = arceasy.obj.constructors.renderer.PointCloudClassBreaksRenderer
 
-    if (parseInt(renderer) === 0) {
-        renderer = renderers[0]
+    let finalRenderer
+
+    if (parseInt(renderer) === undefined ||
+        parseInt(renderer) === '' ||
+        !parseInt(renderer)) {
+        finalRenderer = renderers[0]
+    } else {
+        finalRenderer = renderers[parseInt(renderer)]
     }
 
     const arrConstructors = [
-        new PointCloudRGBRenderer(renderer),
-        new PointCloudUniqueValueRenderer(renderer),
-        new PointCloudStretchRenderer(renderer),
-        new PointCloudClassBreaksRenderer(renderer)
+        new PointCloudRGBRenderer(finalRenderer),
+        new PointCloudUniqueValueRenderer(finalRenderer),
+        new PointCloudStretchRenderer(finalRenderer),
+        new PointCloudClassBreaksRenderer(finalRenderer)
     ]
 
-    console.log('makeRenderer', arrConstructors[renderer])
-    return arrConstructors[renderer]
+    return arrConstructors[parseInt(renderer)]
 }
 
 const pointCloud = () => {

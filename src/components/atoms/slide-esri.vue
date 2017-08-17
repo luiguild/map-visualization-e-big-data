@@ -64,7 +64,7 @@
                 },
                 scale: 10000000000,
                 camera: {
-                    tilt: 90,
+                    tilt: 0,
                     heading: 0
                 },
                 basemap: 'satellite'

@@ -14,30 +14,47 @@
             background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, center, center)
+            +flex(column, n, flex-end, flex-end)
+
+            > h1,
+            > h4
+                font-weight: 900
+
+            > h2
+                font-weight: 600
 
             > h1,
             > h2,
-            > h3
-                color: $white
-                text-shadow: 0 0 30px $black
-
-            > h2
-                font-weight: 900
-                font-size: 90px
-
-            > h3
-                font-weight: 900
-                font-size: 25px
+            > h4
+                color: $black
+                text-align: right
+                // text-shadow: 0 0 30px $black, 0 0 50px $black
 
             > h1
-                font-weight: 900
-                font-size: 190px
-                line-height: 120px
-
+                font-size: 140px
+                line-height: 50px
+                // text-shadow: 0 0 30px $black
 </style>
 
 <template lang="pug">
+    #internal
+        .box
+            h1.subtitle.is-1.is-marginless Graphic
+            h2.subtitle.is-4
+                | Desenho vetorial é o uso
+                br
+                | de primitivas geométricas como pontos,
+                br
+                | linhas, curvas e formas ou polígonos
+                br
+                | - todos os quais são baseados
+                br
+                | em expressões matemáticas -
+                br
+                | para representar imagens
+                br
+                | em computação gráfica.
+            h4.subtitle.is-5 Fonte: Wikipédia
 </template>
 
 <script>
@@ -47,24 +64,21 @@
         props: [],
         data: () => ({
             info: {
-                id: 'palm-springs',
-                presentation: false,
+                id: 'vector',
                 light: {
                     cameraTracking: true
                 },
-                camera: {
-                    position: {
-                        x: -12977859.07,
-                        y: 4016696.94,
-                        z: 348.61,
-                        spatialReference: {
-                            wkid: 102100
-                        }
-                    },
-                    heading: 316,
-                    tilt: 85
+                coordinates: {
+                    latitude: 26.358224064237042,
+                    longitude: 127.7831652745187
                 },
-                basemap: 'satellite'
+                scale: 934.4757970933606,
+                camera: {
+                    tilt: 0,
+                    heading: 200
+                },
+                basemap: 'satellite',
+                layer: []
             }
         }),
         mounted: function () {

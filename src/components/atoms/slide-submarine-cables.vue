@@ -53,17 +53,14 @@
                 light: {
                     cameraTracking: true
                 },
+                coordinates: {
+                    latitude: 8.956709869641337,
+                    longitude: -79.56912269795791
+                },
+                scale: 10000000000,
                 camera: {
-                    position: {
-                        x: -12977859.07,
-                        y: 4016696.94,
-                        z: 348.61,
-                        spatialReference: {
-                            wkid: 102100
-                        }
-                    },
-                    heading: 316,
-                    tilt: 85
+                    tilt: 0,
+                    heading: 0
                 },
                 basemap: 'satellite'
             }

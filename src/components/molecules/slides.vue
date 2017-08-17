@@ -84,7 +84,8 @@
     import slidePointsPhiladelphia1 from '../atoms/slide-points-philadelphia-1'
     import slidePointsPhiladelphia2 from '../atoms/slide-points-philadelphia-2'
     import slideScene from '../atoms/slide-scene'
-    import slideQueryBuildings from '../atoms/slide-query-buildings'
+    import slideQueryBuildings1 from '../atoms/slide-query-buildings-1'
+    import slideQueryBuildings2 from '../atoms/slide-query-buildings-2'
     import slideGraphic from '../atoms/slide-graphic'
     import slideSubmarineCable from '../atoms/slide-submarine-cable'
 
@@ -150,7 +151,8 @@
             slidePointsPhiladelphia1,
             slidePointsPhiladelphia2,
             slideScene,
-            slideQueryBuildings,
+            slideQueryBuildings1,
+            slideQueryBuildings2,
             slideGraphic,
             slideSubmarineCable
         },

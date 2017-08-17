@@ -28,7 +28,7 @@
         props: [],
         data: () => ({
             info: {
-                id: 'query-buildings',
+                id: 'query-buildings-1',
                 // presentation: false,
                 light: {
                     cameraTracking: true

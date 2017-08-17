@@ -1,15 +1,45 @@
 <style scoped lang="sass">
     @import ../../sass/imports/_extend
 
+
+    #colorMixMode
+        background-color: transparentize($white, .3)
+        border-radius: $pixel-proportion / 2
+        padding: $pixel-proportion * 2
+        position: absolute
+        bottom: $pixel-proportion * 2
+        left: $pixel-proportion * 2
+        +dont_select
+
+        > input
+            margin: $pixel-proportion
+
+        > label
+            font-weight: 400
+            font-size: 20px
+
+    #colorMixMode label
+        padding-right: 10px
+        cursor: pointer
+
 </style>
 
-<template lang="html">
-    <div id="colorMixMode">
-        <input type="radio" id="original" name="mode" checked><label for="original">Buildings with original texture</label><br>
-        <input type="radio" id="select" name="mode"><label for="select">Show commercial buildings</label><br>
-        <input type="radio" id="emphasize" name="mode"><label for="emphasize">Emphasize commercial buildings</label><br>
-        <input type="radio" id="desaturate" name="mode"><label for="desaturate">Desaturate texture</label><br>
-        <input type="radio" id="replace" name="mode"><label for="replace">Remove texture</label>
+<template lang="pug">
+    #colorMixMode
+        input#replace(type="radio", name="mode", checked)
+        label(for="replace") Remove texture
+        br
+        input#original(type="radio", name="mode")
+        label(for="original") Buildings with original texture
+        br
+        input#select(type="radio", name="mode")
+        label(for="select") Show commercial buildings
+        br
+        input#emphasize(type="radio", name="mode")
+        label(for="emphasize") Emphasize commercial buildings
+        br
+        input#desaturate(type="radio", name="mode")
+        label(for="desaturate") Desaturate texture
     </div>
 </template>
 
@@ -27,15 +57,15 @@
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: 60.17103237227355,
-                    longitude: 24.943004967523876
+                    latitude: 60.168372879265206,
+                    longitude: 24.951637093418615
                 },
-                scale: 18237.635366885745,
+                scale: 3951.002528823407,
                 camera: {
-                    tilt: 0,
-                    heading: 0
+                    tilt: 70,
+                    heading: 310
                 },
-                basemap: 'dark-gray'
+                basemap: 'streets'
             }
         }),
         mounted: function () {

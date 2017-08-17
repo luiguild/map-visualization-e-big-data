@@ -71,7 +71,7 @@ const changeMap = (slide, state) => {
 
 export default {
     start (state) {
-        state.actual = 47
+        state.actual = 50
     },
     next (state) {
         if (state.actual < state.slides.length - 1) {

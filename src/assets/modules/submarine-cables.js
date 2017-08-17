@@ -25,6 +25,9 @@ const run = () => {
 
     const cablesLayer = new GraphicsLayer({
         id: 'cables',
+        raw: {
+            id: 'cables'
+        },
         url: CABLES,
         definitionExpression: '1=1',
         elevationInfo: {
@@ -35,16 +38,16 @@ const run = () => {
 
     const citiesLayer = new GraphicsLayer({
         id: 'cities',
+        raw: {
+            id: 'cities'
+        },
         url: CITIES,
         definitionExpression: '1=1',
         elevationInfo: {
             mode: 'relativeToGround',
             offset: OFFSET
         }
-    })
-
-    map.add(cablesLayer)
-    map.add(citiesLayer);
+    });
 
     // center: [40, 22]
 
@@ -64,6 +67,7 @@ const run = () => {
             view.map.getLayer('cables').add(
                 r.features.map(function (e) {
                     return new Graphic({
+                        visible: true,
                         attributes: e.attributes,
                         geometry: geometryEngine.geodesicDensify(e.geometry, DENSIFICATION, 'meters'),
                         symbol: new LineSymbol3D({
@@ -97,6 +101,7 @@ const run = () => {
             view.map.getLayer('cities').add(
                 r.features.map(function (e) {
                     return new Graphic({
+                        visible: true,
                         attributes: e.attributes,
                         geometry: e.geometry,
                         symbol: new PointSymbol3D({
@@ -139,17 +144,21 @@ const run = () => {
     })()
 
     // Render all cables
-    view.map.getLayer('cables').graphics.forEach(function (item) {
+    const cableLayerRender = arceasy.layers.find('cables')
+    cableLayerRender.graphics.forEach(function (item) {
         // Make graphic visible
         item.visible = true
     })
 
     // Render all cities
-    view.map.getLayer('cities').graphics.forEach(function (item) {
+    const citiesLayerRender = arceasy.layers.find('cities')
+    citiesLayerRender.graphics.forEach(function (item) {
         // Make graphic visible
         item.visible = true
     })
     // })
+    map.add(cablesLayer)
+    map.add(citiesLayer)
 }
 
 export const submarineCables = () => {

@@ -48,7 +48,7 @@
         props: [],
         data: () => ({
             info: {
-                id: 'palm-springs',
+                id: 'submarine-cables',
                 presentation: false,
                 light: {
                     cameraTracking: true

@@ -56,7 +56,7 @@ export default {
         'query-buildings-1',
         'query-buildings-2',
         'graphic',
-        'submarine-cable',
+        'submarine-cables',
         'parque-do-povo',
         'perguntas',
         'encerramento'

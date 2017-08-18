@@ -10,6 +10,7 @@
         border-radius: $pixel-proportion $pixel-proportion 0 0
         padding: 2px
         padding-bottom: 0
+        +transition(.2s)
 
         > img
             height: $pixel-proportion * 8
@@ -52,7 +53,7 @@
             actual: function (change) {
                 const slide = this.slides[change]
 
-                if (slide.id === 'arceasy') {
+                if (slide === 'arceasy') {
                     this.visible = false
                 } else {
                     this.visible = true

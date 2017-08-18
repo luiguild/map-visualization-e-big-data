@@ -37,7 +37,7 @@
                 text-shadow: 0 0 30px $black
 
             > h3
-                font-size: 180px
+                font-size: 155px
                 line-height: 200px
 </style>
 

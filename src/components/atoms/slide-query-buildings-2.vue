@@ -26,6 +26,7 @@
 
 <template lang="pug">
     #colorMixMode
+        h1.title.is-4.is-marginless Helsinki Buildings
         input#replace(type="radio", name="mode", checked)
         label(for="replace") Remove texture
         br

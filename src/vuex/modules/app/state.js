@@ -57,6 +57,7 @@ export default {
         'mixing',
         'parque-do-povo',
         'poi-1',
+        'arceasy',
         'perguntas',
         'encerramento'
     ]

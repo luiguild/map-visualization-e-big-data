@@ -90,6 +90,7 @@
     import slideSubmarineCables from '../atoms/slide-submarine-cables'
     import slideMixing from '../atoms/slide-mixing'
     import slidePoi1 from '../atoms/slide-poi-1'
+    import slideArceasy from '../atoms/slide-arceasy'
 
     export default {
         props: [],
@@ -158,7 +159,8 @@
             slideGraphic,
             slideSubmarineCables,
             slideMixing,
-            slidePoi1
+            slidePoi1,
+            slideArceasy
         },
         computed: {
             ...mapGetters([

@@ -30,25 +30,25 @@
         props: [],
         data: () => ({
             info: {
-                id: 'parque-do-povo',
+                id: 'poi-1',
                 presentation: false,
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: -23.58898691852486,
-                    longitude: -46.691044527252934
+                    latitude: -23.613076481195602,
+                    longitude: -46.70495241560792
                 },
-                scale: 4500,
+                scale: 19083,
                 camera: {
-                    tilt: 60,
-                    heading: 140
+                    tilt: 0,
+                    heading: 0
                 },
-                basemap: 'satellite',
+                basemap: 'streets',
                 layer: [
-                    'Land Use São Paulo',
-                    '99 - LTE RSSI - São Paulo',
-                    '3D Buildings São paulo Throughput'
+                    'Distance to Supermarkets Reclass',
+                    'OSM Points Supermarkets',
+                    'OSM Points Supermarkets & Banks'
                 ]
             }
         }),

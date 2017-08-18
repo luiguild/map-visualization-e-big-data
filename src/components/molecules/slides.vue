@@ -88,6 +88,8 @@
     import slideQueryBuildings2 from '../atoms/slide-query-buildings-2'
     import slideGraphic from '../atoms/slide-graphic'
     import slideSubmarineCables from '../atoms/slide-submarine-cables'
+    import slideMixing from '../atoms/slide-mixing'
+    import slidePoi1 from '../atoms/slide-poi-1'
 
     export default {
         props: [],
@@ -154,7 +156,9 @@
             slideQueryBuildings1,
             slideQueryBuildings2,
             slideGraphic,
-            slideSubmarineCables
+            slideSubmarineCables,
+            slideMixing,
+            slidePoi1
         },
         computed: {
             ...mapGetters([

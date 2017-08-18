@@ -14,7 +14,7 @@
             background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, flex-end, flex-end)
+            +flex(column, n, flex-end, flex-start)
 
             > h1,
             > h4
@@ -26,8 +26,8 @@
             > h1,
             > h2,
             > h4
-                color: $black
-                text-align: right
+                color: $white
+                text-align: left
                 // text-shadow: 0 0 30px $black, 0 0 50px $black
 
             > h1
@@ -41,20 +41,14 @@
         .box
             h1.subtitle.is-1.is-marginless Graphic
             h2.subtitle.is-4
-                | Desenho vetorial é o uso
+                | Pode conter mais de um tipo de geometria,
                 br
-                | de primitivas geométricas como pontos,
+                | como por exemplo, pontos, linhas, polígonos
                 br
-                | linhas, curvas e formas ou polígonos
+                | e vetores geométricos discretos
                 br
-                | - todos os quais são baseados
-                br
-                | em expressões matemáticas -
-                br
-                | para representar imagens
-                br
-                | em computação gráfica.
-            h4.subtitle.is-5 Fonte: Wikipédia
+                | que representam fenômenos no mundo real.
+            h4.subtitle.is-5 Fonte: ESRI
 </template>
 
 <script>
@@ -64,18 +58,18 @@
         props: [],
         data: () => ({
             info: {
-                id: 'vector',
+                id: 'graphic',
                 light: {
                     cameraTracking: true
                 },
                 coordinates: {
-                    latitude: 26.358224064237042,
-                    longitude: 127.7831652745187
+                    latitude: 51.92048334432284,
+                    longitude: 4.4907825367537475
                 },
-                scale: 934.4757970933606,
+                scale: 1541.5135403876832,
                 camera: {
                     tilt: 0,
-                    heading: 200
+                    heading: 170
                 },
                 basemap: 'satellite',
                 layer: []

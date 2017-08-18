@@ -44,9 +44,9 @@
                     tilt: 0,
                     heading: 0
                 },
-                basemap: 'streets',
+                basemap: 'dark-gray',
                 layer: ['Land Use São Paulo'],
-                opacity: 60
+                opacity: 40
             }
         }),
         mounted: function () {

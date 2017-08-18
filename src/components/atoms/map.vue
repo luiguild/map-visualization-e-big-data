@@ -113,7 +113,7 @@
                     font-weight: 400
 
                 &::before
-                    content: 'Luigui Delyer | Basemap'
+                    content: 'Luigui Delyer | ArcEasy | Basemap'
                     font-weight: 400
                     margin-right: $pixel-proportion * -0.3
 

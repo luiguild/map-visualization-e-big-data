@@ -106,7 +106,27 @@
         props: [],
         data: () => ({}),
         created: function () {},
-        mounted: function () {},
+        mounted: function () {
+            document.onkeydown = e => {
+                if (e.target.className !== 'esri-search__input' &&
+                    e.target.tagName !== 'LI') {
+                    switch (e.keyCode) {
+                    case 37:
+                        this.previous()
+                        break
+                    // case 38:
+                    //     // console.log('up')
+                    //     break
+                    case 39:
+                        this.next()
+                        break
+                    // case 40:
+                    //     // console.log('down')
+                    //     break
+                    }
+                }
+            }
+        },
         updated: function () {},
         destroyed: function () {},
         components: {},

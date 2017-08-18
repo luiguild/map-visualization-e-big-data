@@ -4,14 +4,15 @@
     #internal
         position: relative
         height: 80%
-        width: 75%
+        width: 56%
         border-radius: $pixel-proportion / 2
         +flex(row, n, flex-end, center)
 
         > .box
             width: 100%
             height: 100%
-            background-color: transparentize($white, .3)
+            // background-color: transparentize($white, .3)
+            background-color: $white
             +flex(column, n, center, center)
 
             > h1
@@ -28,21 +29,8 @@
 <template lang="pug">
     #internal
         .box
-            h1.title.is-1 POROJÉSÓ!
-            h2.subtitle.is-4.has-text-centered fb.com/luiguild | twitter.com/luiguild | github.com/luiguild
-            h2.subtitle.is-2.is-marginless.has-text-centered WebRadar
-            h2.subtitle.is-3.is-marginless.has-text-centered www.webradar.com
-            br
-            h2.subtitle.is-2.is-marginless.has-text-centered Mozilla
-            h2.subtitle.is-3.is-marginless.has-text-centered www.mozilla.org
-            .links-group
-                .item
-                    h2.subtitle.is-3.is-marginless.has-text-centered ESRI ArcGIS JS API
-                    h2.subtitle.is-4.is-marginless.has-text-centered developers.arcgis.com
-                .item
-                    h2.subtitle.is-3.is-marginless.has-text-centered OpenStreetMaps
-                    h2.subtitle.is-4.is-marginless.has-text-centered www.osm.org
-            h3.subtitle.is-2.is-marginless.has-text-centered Muito Obrigado!
+            img.paintbrush(src="static/img/arceasy.png")
+            h3.subtitle.is-2.is-marginless.has-text-centered github.com/luiguild/arceasy
 </template>
 
 <script>
@@ -52,7 +40,7 @@
         props: [],
         data: () => ({
             info: {
-                id: 'encerramento',
+                id: 'arceasy',
                 light: {
                     cameraTracking: true
                 },

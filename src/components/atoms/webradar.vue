@@ -1,4 +1,4 @@
-<style lang="sass">
+<style scoped lang="sass">
     @import ../../sass/imports/_extend
 
     #webradar
@@ -20,5 +20,4 @@
 </template>
 
 <script>
-    export default {}
 </script>

@@ -1,4 +1,5 @@
 import * as arceasy from 'arceasy'
+import { getAllTweets } from '../axios/tweets'
 
 const run = () => {
     const view = arceasy.obj.view
@@ -10,6 +11,37 @@ const run = () => {
     // Disable lighting based on the current camera position.
     // We want to display the lighting according to the current time of day.
     // view.environment.lighting.cameraTrackingEnabled = false
+
+    const makePosition = () => {
+        const posHistory = issExternalRenderer.positionHistory
+        const posLength = issExternalRenderer.positionHistory.length - 1
+        return {
+            longitude: posHistory[posLength].pos[0],
+            latitude: posHistory[posLength].pos[1]
+        }
+    }
+
+    let countTwitterCalls = 1
+    const getTweets = () => {
+        console.log('iss position', countTwitterCalls)
+        if (countTwitterCalls === 5) {
+            countTwitterCalls = 1
+
+            getAllTweets({
+                long: makePosition().longitude,
+                lat: makePosition().latitude,
+                range: '1km',
+                count: 20
+            })
+            .then(response => response.data)
+            .then(data => {
+                console.log('iss position', data)
+            })
+        } else {
+            countTwitterCalls++
+        }
+        // console.log('iss position', makePosition())
+    }
 
     // Create our custom external renderer
 
@@ -272,9 +304,11 @@ const run = () => {
                     markerObject.position.set(renderPos[0], renderPos[1], renderPos[2])
                     this.scene.add(markerObject)
                 }
+
+                getTweets()
             }.bind(this))
             .always(function () {
-                // request a new position update in 5 seconds
+                // request a new position update in 8 seconds
                 setTimeout(this.queryISSPosition.bind(this), 8000)
             }.bind(this))
         }

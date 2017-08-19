@@ -2,7 +2,11 @@ import Vue from 'vue'
 import * as arceasy from 'arceasy'
 
 const changeMap = (slide, state) => {
-    arceasy.layers.hideAll()
+    if (slide.id !== 'stack' &&
+        slide.id !== 'webradar-1' &&
+        slide.id !== 'webradar-2') {
+        arceasy.layers.hideAll()
+    }
 
     state.visibility = slide.presentation !== undefined
         ? slide.minimize : true
@@ -38,10 +42,14 @@ const changeMap = (slide, state) => {
     }
 
     if (slide.symbol !== undefined) {
-        arceasy.utils.addGraphicLayer(
-            slide.symbol,
-            slide.point
-        )
+        arceasy.utils.addGraphicSymbol({
+            info: {
+                id: slide.id
+            },
+            symbol: slide.symbol,
+            point: slide.point,
+            text: slide.text
+        })
     }
 
     if (slide.layer !== undefined) {
@@ -61,11 +69,6 @@ const changeMap = (slide, state) => {
                 slide.opacity
             )
         })
-    }
-
-    if (slide.id === 'possibilidades' ||
-        slide.id === 'webradar-3') {
-        arceasy.utils.hideGraphicLayers()
     }
 }
 

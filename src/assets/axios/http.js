@@ -5,6 +5,12 @@ const local = axios.create({
     timeout: 100000
 })
 
+const remote = axios.create({
+    baseURL: 'http://localhost:3000',
+    timeout: 100000
+})
+
 export {
-    local
+    local,
+    remote
 }

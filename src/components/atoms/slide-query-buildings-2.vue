@@ -1,13 +1,12 @@
 <style scoped lang="sass">
     @import ../../sass/imports/_extend
 
-
     #colorMixMode
         background-color: transparentize($white, .3)
         border-radius: $pixel-proportion / 2
         padding: $pixel-proportion * 2
         position: absolute
-        bottom: $pixel-proportion * 2
+        bottom: $pixel-proportion * 11
         left: $pixel-proportion * 2
         +dont_select
 
@@ -28,7 +27,7 @@
     #colorMixMode
         h1.title.is-4.is-marginless Helsinki Buildings
         input#replace(type="radio", name="mode", checked)
-        label(for="replace") Remove texture
+        label(for="replace") Without texture
         br
         input#original(type="radio", name="mode")
         label(for="original") Buildings with original texture

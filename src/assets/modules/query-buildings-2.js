@@ -96,8 +96,8 @@ const run = () => {
         }
     }
 
-    setRenderer('original')
     map.add(layer)
+    setRenderer()
 
     // Add event listener on the buttons to change the renderer and the colorMixMode
     document.getElementById('colorMixMode').addEventListener('change',

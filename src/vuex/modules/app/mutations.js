@@ -42,9 +42,15 @@ const changeMap = (slide, state) => {
     }
 
     if (slide.symbol !== undefined) {
-        arceasy.utils.addGraphicSymbol({
+        arceasy.utils.addGraphicLayer({
             info: {
-                id: slide.id
+                id: `[AEGL]${slide.id}`
+            }
+        })
+
+        arceasy.utils.addGraphicSymbol({
+            layer: {
+                id: `[AEGL]${slide.id}`
             },
             symbol: slide.symbol,
             point: slide.point,

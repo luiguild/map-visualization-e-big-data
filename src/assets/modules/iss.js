@@ -1,5 +1,6 @@
 import * as arceasy from 'arceasy'
 import { getAllTweets } from '../axios/tweets'
+// import io from 'socket.io-client'
 
 const run = () => {
     const view = arceasy.obj.view
@@ -7,6 +8,7 @@ const run = () => {
     const SpatialReference = arceasy.obj.constructors.utils.SpatialReference
     const esriRequest = arceasy.obj.constructors.utils.esriRequest
     const issMeshUrl = 'static/img/iss.obj'
+    // const socket = io.connect('http://localhost:3000')
 
     // Disable lighting based on the current camera position.
     // We want to display the lighting according to the current time of day.
@@ -20,27 +22,116 @@ const run = () => {
             latitude: posHistory[posLength].pos[1]
         }
     }
+    //
+    // const startSocket = () => {
+    //     setInterval(() => {
+    //         console.log('Emiting position', {
+    //             long: makePosition().longitude,
+    //             lat: makePosition().latitude
+    //         })
+    //
+    //         socket.emit('issLocation', {
+    //             long: makePosition().longitude,
+    //             lat: makePosition().latitude
+    //         })
+    //     }, 24000)
+    //
+    //     socket.on('streamTweet', data => {
+    //         console.log('stream', data)
+    //
+    //         // if (data.length > 0) {
+    //         //     arceasy.layers.remove(`[AEGL]Twitter`)
+    //         //
+    //         //     arceasy.utils.addGraphicLayer({
+    //         //         info: {
+    //         //             id: `[AEGL]Twitter`
+    //         //         }
+    //         //     })
+    //         //     data.forEach((elm, indx, arr) => {
+    //         //         arceasy.utils.addGraphicSymbol({
+    //         //             layer: {
+    //         //                 id: `[AEGL]Twitter`
+    //         //             },
+    //         //             point: {
+    //         //                 longitude: elm.coordinates.longitude,
+    //         //                 latitude: elm.coordinates.latitude
+    //         //             },
+    //         //             text: {
+    //         //                 color: [
+    //         //                     29,
+    //         //                     161,
+    //         //                     242,
+    //         //                     0.6
+    //         //                 ],
+    //         //                 content: '',
+    //         //                 size: '20px',
+    //         //                 font: 'FontAwesome'
+    //         //             },
+    //         //             popupTemplate: {
+    //         //                 title: `Tweet from ${elm.name} (@${elm.screen_name})`,
+    //         //                 content: elm.text
+    //         //             }
+    //         //         })
+    //         //     })
+    //         // }
+    //     })
+    // }
+    // setTimeout(() => startSocket(), 1000)
 
     let countTwitterCalls = 1
     const getTweets = () => {
         console.log('iss position', countTwitterCalls)
-        if (countTwitterCalls === 5) {
+        if (countTwitterCalls === 3) {
             countTwitterCalls = 1
 
             getAllTweets({
                 long: makePosition().longitude,
                 lat: makePosition().latitude,
-                range: '1km',
-                count: 20
+                range: '1mi',
+                count: 10000
             })
             .then(response => response.data)
             .then(data => {
                 console.log('iss position', data)
+                if (data.length > 0) {
+                    arceasy.layers.remove(`[AEGL]Twitter`)
+
+                    arceasy.utils.addGraphicLayer({
+                        info: {
+                            id: `[AEGL]Twitter`
+                        }
+                    })
+                    data.forEach((elm, indx, arr) => {
+                        arceasy.utils.addGraphicSymbol({
+                            layer: {
+                                id: `[AEGL]Twitter`
+                            },
+                            point: {
+                                longitude: elm.coordinates.longitude,
+                                latitude: elm.coordinates.latitude
+                            },
+                            text: {
+                                color: [
+                                    29,
+                                    161,
+                                    242,
+                                    0.6
+                                ],
+                                content: '',
+                                size: '20px',
+                                font: 'FontAwesome'
+                            },
+                            popupTemplate: {
+                                title: `Tweet from ${elm.name} (@${elm.screen_name})`,
+                                content: elm.text
+                            }
+                        })
+                    })
+                }
             })
         } else {
             countTwitterCalls++
         }
-        // console.log('iss position', makePosition())
     }
 
     // Create our custom external renderer

@@ -145,8 +145,8 @@
                 basemap: 'dark-gray',
                 stars: true,
                 atmosphere: {
-                    enable: false,
-                    quality: 'low'
+                    enable: true,
+                    quality: 'high'
                 },
                 watcher: true,
                 // light: {

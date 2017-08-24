@@ -11,10 +11,11 @@
         > .box
             width: 100%
             height: 100%
+            margin-top: 185px
             background-color: $transparent
             box-shadow: none
             border: none
-            +flex(column, n, flex-end, center)
+            +flex(column, n, center, center)
 
             > h1,
             > h4
@@ -23,6 +24,7 @@
             > h2
                 font-weight: 600
                 font-size: 80px
+                line-height: 70px
 
             > h1,
             > h2,
@@ -33,12 +35,13 @@
 
             > h1
                 font-size: 140px
-                line-height: 50px
+                line-height: 80px
                 text-shadow: 0 0 30px $black
 
             > h3
-                font-size: 155px
-                line-height: 200px
+                font-size: 21vh
+                line-height: 24vh
+                padding-top: 3vh
 </style>
 
 <template lang="pug">

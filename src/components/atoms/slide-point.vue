@@ -45,11 +45,11 @@
                 br
                 | Cloud
             h2.subtitle.is-4
-                | É um conjunto de dados do tipo "lidar data"
+                | É um conjunto de dados do tipo vetor
                 br
                 | organizados espacialmente após um processo específico
                 br
-                | de captura feito por aviões e satélites,
+                | de captura feito por aviões utilizando lasers,
                 br
                 | que consiste em grandes coleções
                 br

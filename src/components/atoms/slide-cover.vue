@@ -36,7 +36,7 @@
         h2.subtitle.is-2.has-text-centered
             | Transformando informação em valor,
             br
-            | latitude e longitude.
+            | latitude, longitude e muito mais.
 </template>
 
 <script>

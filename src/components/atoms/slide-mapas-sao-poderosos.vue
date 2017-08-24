@@ -33,6 +33,7 @@
     #internal
         .box
             h1.title.is-1.has-text-centered Mapas são poderosos!
+            h2.subtitle.is-3.is-marginless UMN MapServer (1994)
             h2.subtitle.is-3.is-marginless ArcGIS (1999)
             h2.subtitle.is-3.is-marginless HERE Maps (2001)
             h2.subtitle.is-3.is-marginless OpenStreetMap (2004)

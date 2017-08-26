@@ -20,6 +20,7 @@
             .title
                 font-size: 70px
                 margin-bottom: $pixel-proportion
+                margin-top: $pixel-proportion * 2
 
             .npi
                 font-size: 60px
@@ -32,11 +33,13 @@
 <template lang="pug">
     #internal
         .box
+            h2.subtitle.is-4.is-marginless.has-text-centered Front-End & GeoDeveloper
+            h1.subtitle.is-3.is-marginless.npi NPI
+            h1.subtitle.is-4.has-text-centered.npidescri Novos produtos, pesquisa e inovação
+
             h1.title.is-1 WebRadar
             h1.subtitle.is-5 www.webradar.com
-            h1.subtitle.is-3.is-marginless.npi NPI
-            h1.subtitle.is-4.is-marginless.has-text-centered.npidescri Novos produtos, pesquisa e inovação
-            h2.subtitle.is-4.has-text-centered
+            h2.subtitle.is-4.has-text-centered.is-marginless
                 | Fundada em 2008, a WebRadar é uma empresa de tecnologia especializada em Big Data Analytics para IoT.
                 br
                 br

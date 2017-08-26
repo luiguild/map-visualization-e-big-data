@@ -19,7 +19,7 @@
             .emoji
                 font-size: 150px
                 margin-top: $pixel-proportion * -5
-                margin-bottom: $pixel-proportion * -10
+                margin-bottom: $pixel-proportion * -6
 
             .title
                 margin-top: 0
@@ -44,9 +44,9 @@
         .box
             .emoji 👀
             h1.title.is-1.has-text-centered
-                | O que mais
+                | O que dá
                 br
-                | dá pra fazer?
+                | pra fazer?
 </template>
 
 <script>

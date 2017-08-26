@@ -11,9 +11,10 @@ export default {
         'about',
         'stack',
         'webradar-1',
-        'webradar-2',
+        // 'webradar-2',
         'webradar-3',
         'mapas-sao-poderosos',
+        'ma-utilizacao',
         'gis-1',
         'gis-2',
         'esri',
@@ -25,7 +26,6 @@ export default {
         'google-3',
         'google-4',
         'sacanagem',
-        'ma-utilizacao',
         'possibilidades',
         'cidades-1',
         'cidades-2',
@@ -58,7 +58,7 @@ export default {
         'parque-do-povo',
         'poi-1',
         'arceasy',
-        'perguntas',
+        // 'perguntas',
         'encerramento'
     ]
 }

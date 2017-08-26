@@ -16,27 +16,26 @@
             border: none
             +flex(column, n, center, center)
 
-            > h1,
-            > h2
-                // color: $white
-                // text-shadow: 0 0 30px $black
-
             > h1
                 font-weight: 900
                 font-size: 150px
                 line-height: 90px
 
             .area
-                +flex(row, n, center, center)
+                +flex(column, n, center, center)
+                text-align: center
                 // border: 1px solid #000
                 border-radius: $pixel-proportion
-                padding: $pixel-proportion * 4
+                padding: $pixel-proportion * 2
                 margin: $pixel-proportion * 2
                 margin-bottom: $pixel-proportion * 3
                 // margin-top: $pixel-proportion * 3
                 background-color: $color1
+                min-width: $pixel-proportion * 40
+                min-height: $pixel-proportion * 15
 
-                > h1
+                > h1,
+                > h2
                     margin: 0
                     color: $white
 </style>
@@ -52,15 +51,21 @@
             .column.is-marginless.is-paddingless
                 .area
                     h1.title.is-1 Seleção
+                    h2.subtitle.is-marginless.is-4 Busca e navegação
 
                 .area
                     h1.title.is-1 Manipulação
+                    h2.subtitle.is-marginless.is-4 Criar novos mapas
+
             .column.is-marginless.is-paddingless
                 .area
                     h1.title.is-1 Exploração
+                    h2.subtitle.is-marginless.is-4 Modelagem estatística
 
                 .area
                     h1.title.is-1 Confirmação
+                    h2.subtitle.is-marginless.is-4 Predição
+
         h4.subtitle.is-5 Fonte: Interactive techniques and Exploratory Spatial Data Analysis - Anselin (1999)
 </template>
 

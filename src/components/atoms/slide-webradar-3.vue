@@ -19,15 +19,16 @@
             .emoji
                 font-size: 150px
                 margin-top: $pixel-proportion * -12
-                margin-bottom: $pixel-proportion * -10
+                margin-bottom: $pixel-proportion * -6
 
             .title
                 margin-top: 0
+                margin-bottom: $pixel-proportion * -2
 
             > h1,
             > h2
-                color: $black
-                // text-shadow: 0 0 30px $black
+                color: $white
+                text-shadow: 0 0 30px $black
 
             > h2
                 font-weight: 900
@@ -43,7 +44,7 @@
     #internal
         .box
             .emoji 🤔
-            h2.title.is-2.is-marginless.has-text-centered.npidescri Big Data e IoT...
+            h2.title.is-2.has-text-centered.npidescri Big Data e IoT...
             h1.subtitle.is-3.is-marginless.npi ...que IoT?
 </template>
 
@@ -67,7 +68,7 @@
                     tilt: 77,
                     heading: 65
                 },
-                basemap: 'osm'
+                basemap: 'satellite'
             }
         }),
         mounted: function () {

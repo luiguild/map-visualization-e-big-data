@@ -3,6 +3,7 @@ import * as arceasy from 'arceasy'
 
 const changeMap = (slide, state) => {
     if (slide.id !== 'stack' &&
+        slide.id !== 'about' &&
         slide.id !== 'webradar-1' &&
         slide.id !== 'webradar-2') {
         arceasy.layers.hideAll()

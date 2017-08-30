@@ -91,6 +91,7 @@
     import slideMixing from '../atoms/slide-mixing'
     import slidePoi1 from '../atoms/slide-poi-1'
     import slideArceasy from '../atoms/slide-arceasy'
+    import slideUncleBen from '../atoms/slide-uncle-ben'
 
     export default {
         props: [],
@@ -160,7 +161,8 @@
             slideSubmarineCables,
             slideMixing,
             slidePoi1,
-            slideArceasy
+            slideArceasy,
+            slideUncleBen
         },
         computed: {
             ...mapGetters([

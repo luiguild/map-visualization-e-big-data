@@ -39,7 +39,7 @@ export default {
         'layers-1',
         'raster',
         'rj-99',
-        'sygic-hongkong',
+        // 'sygic-hongkong',
         'sygic-paris',
         'sp-99',
         'distance-to-supermarkets',
@@ -57,6 +57,7 @@ export default {
         'mixing',
         'parque-do-povo',
         'poi-1',
+        'uncle-ben',
         'arceasy',
         // 'perguntas',
         'encerramento'

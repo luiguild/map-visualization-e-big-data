@@ -32,7 +32,7 @@
         props: [],
         data: () => ({
             info: {
-                id: 'mind-blown',
+                id: 'uncle-ben',
                 light: {
                     cameraTracking: true
                 },

@@ -13,9 +13,9 @@ const run = () => {
     const PointSymbol3D = arceasy.obj.constructors.renderer.PointSymbol3D
     const ObjectSymbol3DLayer = arceasy.obj.constructors.renderer.ObjectSymbol3DLayer
 
-    const CABLES = 'http://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/2'
-    const CITIES = 'http://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/1'
-    const LINKS = 'http://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/3'
+    const CABLES = 'https://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/2'
+    const CITIES = 'https://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/1'
+    const LINKS = 'https://services.arcgis.com/6DIQcwlPy8knb6sg/arcgis/rest/services/SubmarineCables/FeatureServer/3'
     const OFFSET = 30000
     const PIPE_SIZE = 25000
     const CITY_SIZE = 50000

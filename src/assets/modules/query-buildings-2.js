@@ -23,7 +23,7 @@ const run = () => {
 
     // Create SceneLayer with textured buildings
     var layer = new SceneLayer({
-        url: 'http://services2.arcgis.com/cFEFS0EWrhfDeVw9/ArcGIS/rest/services/STM____F_Helsinki__Textured_buildings_with_attributes/SceneServer/layers/0',
+        url: 'https://services2.arcgis.com/cFEFS0EWrhfDeVw9/ArcGIS/rest/services/STM____F_Helsinki__Textured_buildings_with_attributes/SceneServer/layers/0',
         outFields: ['usage'],
         title: 'Buildings in Helsinki'
     })

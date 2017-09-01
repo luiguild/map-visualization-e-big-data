@@ -160,6 +160,7 @@
                 },
                 cors: [
                     'http://localhost',
+                    'https://npi.s1x.com.br',
                     'http://45.33.83.153',
                     'http://45.33.83.153:3310'
                 ],

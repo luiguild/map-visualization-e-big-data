@@ -362,7 +362,7 @@ const run = () => {
         * This function starts a chain of calls querying the current ISS position from open-notify.org every 5 seconds.
         */
         queryISSPosition: function () {
-            esriRequest('//open-notify-api.herokuapp.com/iss-now.json', {
+            esriRequest('https://open-notify-api.herokuapp.com/iss-now.json', {
                 callbackParamName: 'callback',
                 responseType: 'json'
             })

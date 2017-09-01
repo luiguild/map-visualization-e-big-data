@@ -36,7 +36,8 @@
 
             > h1
                 font-weight: 900
-                font-size: 190px
+                font-size: 150px
+                letter-spacing: -3px
                 line-height: 120px
 </style>
 
